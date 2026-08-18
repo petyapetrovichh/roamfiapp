@@ -32,9 +32,29 @@
   }
 
   .content-pad { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)); }
+  .content-pad2 { padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+
+  .tab-btn { color: #9CA3AF; background: transparent; }
+  .tab-btn.tab-active { background: #0A0A0A; color: #fff; }
+
+  .pill {
+    background: #fff;
+    border: 1.5px solid #E5E7EB;
+    color: #000;
+  }
+  .pill.pill-selected {
+    background: rgba(5,227,247,0.14);
+    border: 1.5px solid var(--brand);
+    color: #00A9B8;
+  }
+
+  .amt-pill { background: #F3F4F6; color: #9CA3AF; }
+  .amt-pill.amt-selected { background: var(--brand); color: #000; }
 </style>
 </head>
 <body>
+
+<div id="page-home">
 
   <!-- Greeting -->
   <div class="px-5 pt-6 pb-4 bg-white">
@@ -53,30 +73,30 @@
   <div class="px-5 pb-4 bg-white">
     <h2 class="text-[15px] font-semibold text-black mb-3">Hot Destinations</h2>
     <div class="flex gap-2.5 overflow-x-auto no-scrollbar -mr-5 pr-5">
-      <div class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
+      <button onclick="openPlans('Japan','🇯🇵')" class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
         <span class="text-[16px] leading-none">🇯🇵</span>
         <span class="text-[14px] font-medium text-black whitespace-nowrap">Japan</span>
-      </div>
-      <div class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
+      </button>
+      <button onclick="openPlans('South Korea','🇰🇷')" class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
         <span class="text-[16px] leading-none">🇰🇷</span>
         <span class="text-[14px] font-medium text-black whitespace-nowrap">South Korea</span>
-      </div>
-      <div class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
+      </button>
+      <button onclick="openPlans('Singapore','🇸🇬')" class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
         <span class="text-[16px] leading-none">🇸🇬</span>
         <span class="text-[14px] font-medium text-black whitespace-nowrap">Singapore</span>
-      </div>
-      <div class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
+      </button>
+      <button onclick="openPlans('Thailand','🇹🇭')" class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
         <span class="text-[16px] leading-none">🇹🇭</span>
         <span class="text-[14px] font-medium text-black whitespace-nowrap">Thailand</span>
-      </div>
-      <div class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
+      </button>
+      <button onclick="openPlans('USA','🇺🇸')" class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
         <span class="text-[16px] leading-none">🇺🇸</span>
         <span class="text-[14px] font-medium text-black whitespace-nowrap">USA</span>
-      </div>
-      <div class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
+      </button>
+      <button onclick="openPlans('UK','🇬🇧')" class="shrink-0 bg-gray-100 rounded-full h-10 px-4 flex items-center gap-2">
         <span class="text-[16px] leading-none">🇬🇧</span>
         <span class="text-[14px] font-medium text-black whitespace-nowrap">UK</span>
-      </div>
+      </button>
     </div>
   </div>
 
@@ -221,6 +241,231 @@
       <span class="text-[11px] font-medium text-gray-400">Me</span>
     </div>
   </div>
+
+</div>
+
+<!-- ============ PLANS PAGE ============ -->
+<div id="page-plans" style="display:none">
+
+  <!-- Header -->
+  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-white">
+    <button onclick="backToHome()" class="absolute left-5 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="flex items-center gap-1.5">
+      <span id="plans-flag" class="text-[15px] leading-none">🇯🇵</span>
+      <span id="plans-country" class="text-[16px] font-semibold text-black">Japan</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="px-5 pb-4 bg-white">
+    <div class="bg-gray-100 rounded-2xl p-1 flex">
+      <button onclick="showTab('data')" data-tab="data" class="tab-btn flex-1 h-10 rounded-xl text-[13.5px] font-semibold">Data</button>
+      <button onclick="showTab('calls')" data-tab="calls" class="tab-btn flex-1 h-10 rounded-xl text-[13.5px] font-semibold">Data and calls</button>
+      <button onclick="showTab('funds')" data-tab="funds" class="tab-btn flex-1 h-10 rounded-xl text-[13.5px] font-semibold">Add Funds</button>
+    </div>
+  </div>
+
+  <div class="bg-gray-100 px-5 pt-5 content-pad2">
+
+    <!-- TAB: Data -->
+    <div id="tab-data" class="tab-content">
+      <div class="bg-white rounded-2xl p-4 mb-4">
+        <h2 class="text-[19px] font-bold text-black leading-snug mb-4">Buy a plan for long trips or higher data usage.</h2>
+
+        <div class="flex flex-col gap-3.5 mb-4">
+          <div class="flex items-center gap-3">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.4"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.6 4.2 6 4.2 9.5s-1.4 6.9-4.2 9.5c-2.8-2.6-4.2-6-4.2-9.5s1.4-6.9 4.2-9.5z"/></svg>
+            <span class="text-[14px] text-gray-400">Valid in Japan</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.4"><rect x="2.5" y="6" width="19" height="12" rx="1.5"/><text x="12" y="14.5" text-anchor="middle" font-size="7.5" font-weight="700" fill="#9CA3AF" stroke="none" font-family="-apple-system,sans-serif">5G</text></svg>
+            <span class="text-[14px] text-gray-400">5G Supported, Hotspot Supported</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.4" stroke-linecap="round"><path d="M4 15a8 8 0 0116 0"/><path d="M12 15l3.5-4.5"/><path d="M6 11.5l.8.8M18 11.5l-.8.8M12 6v1.2"/></svg>
+            <span class="text-[14px] text-gray-400">128Kbps</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.4"><circle cx="12" cy="12" r="9.5"/><path d="M8 13.5a5.5 5.5 0 018 0" stroke-linecap="round"/><path d="M6 10.3a8.5 8.5 0 0112 0" stroke-linecap="round"/><path d="M9.3 16.3l2.7-3.6 2.7 3.6z" fill="#9CA3AF" stroke="none"/></svg>
+            <span class="text-[14px] text-gray-400">Japan Docomo-IIJ</span>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-100 mb-4"></div>
+
+        <div class="text-[13px] text-gray-400 mb-2.5">Days</div>
+        <div class="grid grid-cols-4 gap-2.5 mb-2.5">
+          <button onclick="selectPill(this)" class="pill pill-selected h-14 rounded-xl text-[16px] font-semibold" data-value="3">3</button>
+          <button onclick="selectPill(this)" class="pill h-14 rounded-xl text-[16px] font-semibold" data-value="5">5</button>
+          <button onclick="selectPill(this)" class="pill h-14 rounded-xl text-[16px] font-semibold" data-value="7">7</button>
+          <button onclick="selectPill(this)" class="pill h-14 rounded-xl text-[16px] font-semibold" data-value="15">15</button>
+        </div>
+        <div class="grid grid-cols-4 gap-2.5 mb-4">
+          <button onclick="selectPill(this)" class="pill h-14 rounded-xl text-[16px] font-semibold" data-value="30">30</button>
+        </div>
+
+        <div class="text-[13px] text-gray-400 mb-2.5">Data Plan</div>
+        <div class="grid grid-cols-2 gap-2.5 mb-4">
+          <button onclick="selectPill(this)" class="pill pill-selected h-12 rounded-xl text-[14.5px] font-semibold">1GB/day</button>
+          <button onclick="selectPill(this)" class="pill h-12 rounded-xl text-[14.5px] font-semibold">1GB/total</button>
+        </div>
+
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-[14px] text-gray-400">Total Amount</span>
+          <span class="text-[18px] font-bold text-black">$7.18</span>
+        </div>
+
+        <button class="w-full h-12 rounded-full brand-btn text-[15px] font-bold text-black">Choose</button>
+      </div>
+
+      <div class="pb-4">
+        <h3 class="text-[15px] font-semibold text-black mb-3">Data Detail</h3>
+        <ul class="flex flex-col gap-3">
+          <li class="flex gap-2 text-[13.5px] text-gray-500 leading-snug"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>For Roamfi-Fix, a new eSIM is required to be installed each time you purchase a package—do not delete it before expiry.</li>
+          <li class="flex gap-2 text-[13.5px] text-gray-500 leading-snug"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>Some Fix eSIMs start billing once they are installed. Please do not install the Fix eSIM before your departure date.</li>
+          <li class="flex gap-2 text-[13.5px] text-gray-500 leading-snug"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>Before your Fix plan runs out, add a new plan or switch to Flex to stay connected.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TAB: Data and calls -->
+    <div id="tab-calls" class="tab-content" style="display:none">
+      <div class="bg-white rounded-2xl p-4 mb-4 flex flex-col items-center pt-6 pb-10">
+        <h2 class="text-[19px] font-bold text-black leading-snug mb-10 self-start">Cheaper Than Roaming. Better Than Local SIMs.</h2>
+        <div class="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="black"><path d="M12 2c2.5 1.8 4 5 4 8.5 0 1.7-.4 3-1 4.2l2.3 1.6-.9 3.1-3.1-1.5c-.4.3-.9.5-1.3.7v2.2h-2v-2.2c-.4-.2-.9-.4-1.3-.7l-3.1 1.5-.9-3.1 2.3-1.6c-.6-1.2-1-2.5-1-4.2 0-3.5 1.5-6.7 4-8.5z"/><circle cx="12" cy="10" r="1.6" fill="white"/><path d="M8 21.5l1.2-2.3h5.6l1.2 2.3z"/></svg>
+        </div>
+        <p class="text-[16px] font-bold text-black mb-1">Coming Soon</p>
+        <p class="text-[13.5px] text-gray-400">Data and calls plans are on the way. Stay tuned!</p>
+      </div>
+    </div>
+
+    <!-- TAB: Add Funds -->
+    <div id="tab-funds" class="tab-content" style="display:none">
+      <div class="bg-white rounded-2xl p-4 mb-4">
+        <h2 class="text-[19px] font-bold text-black leading-snug mb-4">Add funds, pay for what you use and save remaning balance for next trips.</h2>
+
+        <div class="bg-gray-100 rounded-2xl h-16 flex items-center justify-between px-4 mb-3">
+          <span id="funds-amount-display" class="text-[27px] font-semibold text-black">20</span>
+          <span class="text-[16px] text-gray-400">$</span>
+        </div>
+
+        <div class="flex items-center gap-2 mb-4">
+          <button onclick="selectAmount(this)" class="amt-pill flex-1 h-10 rounded-full text-[14px] font-semibold" data-value="5">$5</button>
+          <button onclick="selectAmount(this)" class="amt-pill amt-selected flex-1 h-10 rounded-full text-[14px] font-semibold" data-value="20">$20</button>
+          <button onclick="selectAmount(this)" class="amt-pill flex-1 h-10 rounded-full text-[14px] font-semibold" data-value="50">$50</button>
+          <button onclick="selectAmount(this)" class="amt-pill flex-1 h-10 rounded-full text-[14px] font-semibold" data-value="100">$100</button>
+        </div>
+
+        <div class="flex justify-center mb-4">
+          <span class="bg-gray-100 text-gray-500 text-[12.5px] font-medium px-3 py-1.5 rounded-full">Data in Japan $2.99/GB</span>
+        </div>
+
+        <div class="border border-gray-100 rounded-2xl px-4 py-3.5 mb-4">
+          <div class="flex items-center justify-between mb-3.5">
+            <div class="flex items-center gap-2">
+              <svg width="19" height="19" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="11" fill="black"/>
+                <g fill="white">
+                  <path d="M12 12 Q12 5.5 18 5.5 Q18 9.5 12 12 Z"/>
+                  <path d="M12 12 Q12 5.5 18 5.5 Q18 9.5 12 12 Z" transform="rotate(90 12 12)"/>
+                  <path d="M12 12 Q12 5.5 18 5.5 Q18 9.5 12 12 Z" transform="rotate(180 12 12)"/>
+                  <path d="M12 12 Q12 5.5 18 5.5 Q18 9.5 12 12 Z" transform="rotate(270 12 12)"/>
+                </g>
+              </svg>
+              <span class="text-[16px] font-bold text-black">20 $RUSD</span>
+            </div>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="flex items-center gap-1.5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.8" stroke-linecap="round">
+                <path d="M6 5.5c-2.5 2-2.5 11 0 13"/>
+                <path d="M9 8c-1.3 1.6-1.3 6.4 0 8"/>
+                <path d="M15 8c1.3 1.6 1.3 6.4 0 8"/>
+                <path d="M18 5.5c2.5 2 2.5 11 0 13"/>
+                <path d="M12.4 8.3l-2.1 4.2h1.7L11 16.3l3.1-4.8h-1.8l.1-3.2z" fill="black" stroke="none"/>
+              </svg>
+              <span class="text-[16px] font-bold text-black">6.69GB</span>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-100 mb-3.5"></div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <svg width="19" height="19" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="11" fill="black"/>
+                <path d="M8.5 7h4.3c1.9 0 3.2 1 3.2 2.7 0 1.2-.7 2-1.7 2.4L17 17h-2.1l-2.4-4.5h-1.7V17H8.5V7zm2.3 1.7v2.5h1.9c.9 0 1.5-.4 1.5-1.25s-.6-1.25-1.5-1.25h-1.9z" fill="white"/>
+              </svg>
+              <span class="text-[16px] font-bold text-black">496.51 $RF</span>
+            </div>
+            <span class="text-[13px] text-gray-400 flex items-center gap-1">Rule
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <button class="w-full h-12 rounded-full brand-btn text-[15px] font-bold text-black">Choose</button>
+      </div>
+
+      <div class="pb-4">
+        <h3 class="text-[15px] font-semibold text-black mb-3">Data Detail</h3>
+        <ul class="flex flex-col gap-3">
+          <li class="flex gap-2 text-[13.5px] text-gray-500 leading-snug"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>For Roamfi-Flex, one eSIM, install once and use permanently across countries.</li>
+          <li class="flex gap-2 text-[13.5px] text-gray-500 leading-snug"><span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>FLEX balance never expires.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function openPlans(country, flag) {
+    document.getElementById('plans-country').textContent = country;
+    document.getElementById('plans-flag').textContent = flag;
+    document.getElementById('page-home').style.display = 'none';
+    document.getElementById('page-plans').style.display = '';
+    showTab('data');
+    window.scrollTo(0, 0);
+  }
+
+  function backToHome() {
+    document.getElementById('page-plans').style.display = 'none';
+    document.getElementById('page-home').style.display = '';
+    window.scrollTo(0, 0);
+  }
+
+  function showTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(function(el) {
+      el.style.display = (el.id === 'tab-' + tab) ? '' : 'none';
+    });
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      if (btn.dataset.tab === tab) {
+        btn.classList.add('tab-active');
+      } else {
+        btn.classList.remove('tab-active');
+      }
+    });
+  }
+
+  function selectPill(el) {
+    var siblings = el.parentElement.querySelectorAll('.pill');
+    siblings.forEach(function(s) { s.classList.remove('pill-selected'); });
+    el.classList.add('pill-selected');
+  }
+
+  function selectAmount(el) {
+    var siblings = el.parentElement.querySelectorAll('.amt-pill');
+    siblings.forEach(function(s) { s.classList.remove('amt-selected'); });
+    el.classList.add('amt-selected');
+    document.getElementById('funds-amount-display').textContent = el.dataset.value;
+  }
+
+  showTab('data');
+</script>
 
 </body>
 </html>
