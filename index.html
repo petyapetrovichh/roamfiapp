@@ -243,17 +243,18 @@
       </svg>
       <span class="text-[11px] font-medium text-gray-400">eSIM</span>
     </button>
-    <button onclick="openSupport()" class="flex flex-col items-center gap-1">
+    <button onclick="goToTab('support')" class="flex flex-col items-center gap-1">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><path d="M4 4h16a1 1 0 011 1v10a1 1 0 01-1 1H9l-4 4v-4H4a1 1 0 01-1-1V5a1 1 0 011-1z"/></svg>
       <span class="text-[11px] font-medium text-gray-400">Support</span>
     </button>
-    <button class="flex flex-col items-center gap-1">
+    <button onclick="goToTab('me')" class="flex flex-col items-center gap-1">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5" /></svg>
       <span class="text-[11px] font-medium text-gray-400">Me</span>
     </button>
   </div>
 
 </div>
+
 
 <!-- ============ PLANS PAGE ============ -->
 <div id="page-plans" style="display:none">
@@ -416,8 +417,8 @@
 <div id="page-summary" style="display:none">
 
   <!-- Header -->
-  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-white">
-    <button onclick="backToPlans()" class="absolute left-5 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-gray-100">
+    <button onclick="backToPlans()" class="absolute left-5 w-9 h-9 rounded-full bg-white flex items-center justify-center">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
     </button>
     <h1 class="text-[17px] font-bold text-black">Purchase Summary</h1>
@@ -513,8 +514,8 @@
               <path d="M5 10C2.243 10 0 7.757 0 5C0 2.243 2.243 0 5 0C7.757 0 10 2.243 10 5C10 7.757 7.757 10 5 10ZM5 0.788667C2.67789 0.788667 0.788667 2.67789 0.788667 5C0.788667 7.32211 2.67789 9.21133 5 9.21133C7.32211 9.21133 9.21133 7.32211 9.21133 5C9.21133 2.67789 7.32211 0.788667 5 0.788667Z" fill="#BFC5C8"/>
             </svg>
           </button>
-          <div id="rf-info-tooltip-funds" class="rf-tooltip absolute right-0 top-8 bg-white rounded-2xl p-3.5 z-10" style="display:none;width:220px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid #EEF0F2;">
-            <span class="text-[12.5px] text-gray-500 leading-snug">RF is a bonus token which is provided separately from USD by revenue sharing program. More details about RF <button onclick="openTokenRules('page-summary')" class="font-semibold text-gray-400 underline">here</button>.</span>
+          <div id="rf-info-tooltip-funds" class="rf-tooltip absolute right-0 top-8 bg-white rounded-2xl p-3.5 z-10" style="display:none;width:260px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid #EEF0F2;">
+            <span class="text-[12.5px] text-gray-500 leading-snug">RF is a bonus token which is provided separately from USD by revenue sharing program. To learn more what is RF, please go to Support tab, then FAQ → RF Bonus. More details about RF distribution rules <button onclick="openTokenRules('page-summary')" class="font-bold text-black underline">here</button>.</span>
           </div>
         </div>
       </div>
@@ -544,8 +545,8 @@
 <div id="page-summary-data" style="display:none">
 
   <!-- Header -->
-  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-white">
-    <button onclick="backToPlansData()" class="absolute left-5 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-gray-100">
+    <button onclick="backToPlansData()" class="absolute left-5 w-9 h-9 rounded-full bg-white flex items-center justify-center">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
     </button>
     <h1 class="text-[17px] font-bold text-black">Purchase Summary</h1>
@@ -615,8 +616,8 @@
               <path d="M5 10C2.243 10 0 7.757 0 5C0 2.243 2.243 0 5 0C7.757 0 10 2.243 10 5C10 7.757 7.757 10 5 10ZM5 0.788667C2.67789 0.788667 0.788667 2.67789 0.788667 5C0.788667 7.32211 2.67789 9.21133 5 9.21133C7.32211 9.21133 9.21133 7.32211 9.21133 5C9.21133 2.67789 7.32211 0.788667 5 0.788667Z" fill="#BFC5C8"/>
             </svg>
           </button>
-          <div id="rf-info-tooltip-data" class="rf-tooltip absolute right-0 top-8 bg-white rounded-2xl p-3.5 z-10" style="display:none;width:220px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid #EEF0F2;">
-            <span class="text-[12.5px] text-gray-500 leading-snug">RF is a bonus token which is provided separately from USD by revenue sharing program. More details about RF <button onclick="openTokenRules('page-summary-data')" class="font-semibold text-gray-400 underline">here</button>.</span>
+          <div id="rf-info-tooltip-data" class="rf-tooltip absolute right-0 top-8 bg-white rounded-2xl p-3.5 z-10" style="display:none;width:260px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid #EEF0F2;">
+            <span class="text-[12.5px] text-gray-500 leading-snug">RF is a bonus token which is provided separately from USD by revenue sharing program. To learn more what is RF, please go to Support tab, then FAQ → RF Bonus. More details about RF distribution rules <button onclick="openTokenRules('page-summary-data')" class="font-bold text-black underline">here</button>.</span>
           </div>
         </div>
       </div>
@@ -646,8 +647,8 @@
 <div id="page-token-rules" style="display:none">
 
   <!-- Header -->
-  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-white">
-    <button onclick="closeTokenRules()" class="absolute left-5 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-gray-100">
+    <button onclick="closeTokenRules()" class="absolute left-5 w-9 h-9 rounded-full bg-white flex items-center justify-center">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
     </button>
     <h1 class="text-[17px] font-bold text-black">Token Bonus Rules</h1>
@@ -1310,7 +1311,7 @@
 <!-- ============ SUPPORT / FAQ PAGE ============ -->
 <div id="page-support" style="display:none">
 
-  <div class="px-5 pt-6 content-pad2">
+  <div class="px-5 pt-6 content-pad">
 
     <!-- Search bar -->
     <div class="flex items-center gap-2.5 mb-5">
@@ -1869,22 +1870,13 @@
           <span class="text-[13.5px] text-gray-500 leading-snug">No, RF Bonus is credited and held directly in your RoamFi app account. A separate external wallet isn&#x27;t required for basic earning and holding.</span>
         </div>
       </div>
-      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
-        <button onclick="toggleFaq(40)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
-          <span class="text-[14.5px] font-bold text-black leading-snug">Where can I find the exact RF Bonus reward rules?</span>
-          <svg id="faq-chevron-40" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div id="faq-answer-40" style="display:none" class="px-4 pb-4">
-          <span class="text-[13.5px] text-gray-500 leading-snug">The full rules — exactly how much you earn per purchase and per referral — are published on a dedicated page: roamfi.net/reward/rule. This FAQ only covers the general mechanics.</span>
-        </div>
-      </div>
     </div>
 
   </div>
 
   <!-- Bottom tab bar -->
   <div class="tabbar bg-white border-t border-gray-100 flex items-center justify-around pt-2 pb-2">
-    <button onclick="closeSupport()" class="flex flex-col items-center gap-1">
+    <button onclick="goToTab('home')" class="flex flex-col items-center gap-1">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><path d="M4 11.5L12 4l8 7.5V21a1 1 0 01-1 1h-5v-6H10v6H5a1 1 0 01-1-1V11.5z"/></svg>
       <span class="text-[11px] font-medium text-gray-400">Home</span>
     </button>
@@ -1899,12 +1891,364 @@
       <svg width="24" height="24" viewBox="0 0 24 24" fill="black"><path d="M4 4h16a1 1 0 011 1v10a1 1 0 01-1 1H9l-4 4v-4H4a1 1 0 01-1-1V5a1 1 0 011-1z"/></svg>
       <span class="text-[11px] font-medium text-black">Support</span>
     </button>
-    <button class="flex flex-col items-center gap-1">
+    <button onclick="goToTab('me')" class="flex flex-col items-center gap-1">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5" /></svg>
       <span class="text-[11px] font-medium text-gray-400">Me</span>
     </button>
   </div>
 
+</div>
+
+<!-- ============ ME / PROFILE PAGE ============ -->
+<div id="page-me" style="display:none">
+
+  <!-- Header -->
+  <div class="px-5 pt-6 pb-4 bg-white">
+    <h1 class="text-[28px] font-bold text-black leading-tight">Profile</h1>
+  </div>
+
+  <div class="bg-gray-100 px-5 pt-5 content-pad">
+
+    <!-- Profile card -->
+    <div class="bg-white rounded-2xl p-4 flex items-center gap-3.5 mb-3">
+      <div class="w-14 h-14 rounded-full shrink-0" style="background: conic-gradient(#8BC34A 0deg 90deg, #2196F3 90deg 180deg, #FF7043 180deg 270deg, #1E88E5 270deg 360deg);"></div>
+      <div class="min-w-0">
+        <div class="text-[18px] font-bold text-black truncate">oppmisis</div>
+        <div class="flex items-center gap-1.5 mt-0.5">
+          <span class="text-[13px] text-gray-400">ID:734867412</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.8"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 01-1-1V4a1 1 0 011-1h10a1 1 0 011 1v1"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Balance box -->
+    <div class="bg-white rounded-2xl p-4 mb-3">
+      <div class="flex items-center justify-between">
+        <span class="text-[13.5px] text-gray-400">Balance</span>
+        <button onclick="openHistory('page-me')" class="flex items-center justify-center">
+          <svg width="21" height="21" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M133.333 82.5V44.1667C133.333 33.5812 124.752 25 114.167 25H44.1667C33.5812 25 25 33.5812 25 44.1667V139.167C25 149.752 33.5812 158.333 44.1667 158.333H79.5" stroke="#9CA3AF" stroke-width="14.1667" stroke-linecap="round"/>
+            <path d="M130.833 172.5C151.084 172.5 167.5 156.084 167.5 135.833C167.5 115.583 151.084 99.1665 130.833 99.1665C110.583 99.1665 94.1666 115.583 94.1666 135.833C94.1666 156.084 110.583 172.5 130.833 172.5Z" stroke="#9CA3AF" stroke-width="12.5"/>
+            <path d="M130.833 115.833V135.833L145 149.167" stroke="#9CA3AF" stroke-width="10.8333" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="text-[28px] font-bold text-black mt-1 mb-4">$68.75</div>
+      <div class="flex items-center gap-2.5">
+        <button class="flex-1 h-11 rounded-full brand-btn flex items-center justify-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>
+          <span class="text-[14px] font-bold text-black">Add Funds</span>
+        </button>
+        <button class="flex-1 h-11 rounded-full brand-btn flex items-center justify-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20L20 4"/><path d="M8 4h12v12"/></svg>
+          <span class="text-[14px] font-bold text-black">Withdraw</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Referral program box -->
+    <button onclick="openReferral('page-me')" class="w-full bg-white rounded-2xl p-4 mb-3 flex items-center justify-between text-left gap-3">
+      <div class="min-w-0">
+        <span class="text-[13.5px] text-gray-400">Referral program</span>
+        <div class="text-[24px] font-bold text-black mt-1 mb-1.5">$4K</div>
+        <span class="text-[13px] text-gray-400">13 Friends activated</span>
+      </div>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2" class="shrink-0"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <!-- Revenue sharing box -->
+    <button onclick="openRevenueSharing('page-me')" class="w-full bg-white rounded-2xl p-4 mb-5 flex items-center justify-between text-left gap-3">
+      <div class="min-w-0">
+        <span class="text-[13.5px] text-gray-400">Revenue sharing</span>
+        <div class="text-[24px] font-bold text-black mt-1 mb-1.5">$0</div>
+        <span class="text-[13px] text-gray-400">0% Current weight</span>
+      </div>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2" class="shrink-0"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <!-- Bonuses -->
+    <h3 class="text-[16px] font-bold text-black mb-3">Bonuses</h3>
+    <div class="bg-white rounded-2xl mb-5">
+      <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-100">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6" stroke-linejoin="round"><path d="M12.5 3H20a1 1 0 011 1v7.5a1 1 0 01-.3.7l-8.5 8.5a1 1 0 01-1.4 0l-7.5-7.5a1 1 0 010-1.4l8.5-8.5a1 1 0 01.7-.3z"/><circle cx="16" cy="8" r="1.5" fill="black" stroke="none"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">Promo/Inviter Codes</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <button onclick="openRfBonus('page-me')" class="w-full flex items-center gap-3 px-4 py-4 text-left">
+        <svg width="19" height="19" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+          <path d="M10.0483 5.02416C10.0483 7.79892 7.79892 10.0483 5.02416 10.0483C2.24939 10.0483 0 7.79892 0 5.02416C0 2.24939 2.24939 0 5.02416 0C7.79892 0 10.0483 2.24939 10.0483 5.02416Z" fill="black"/>
+          <path d="M6.25513 2.64575L7.43677 3.82739L7.58423 3.97388V5.79126H7.5647L6.58228 5.11353V4.38794L5.69458 3.50024H3.46509V6.57056L4.04028 6.2229C4.63142 5.86512 5.37851 5.88755 5.94751 6.27954L7.54419 7.38013H5.78052L5.37915 7.10376C5.13447 6.93532 4.813 6.92553 4.55884 7.07935L4.06177 7.38013H2.46313V2.49829H6.10864L6.25513 2.64575Z" fill="white"/>
+        </svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">RF Bonus</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Settings -->
+    <h3 class="text-[16px] font-bold text-black mb-3">Settings</h3>
+    <div class="bg-white rounded-2xl mb-5">
+      <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-100">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6M4 9h4M4 19l4-10 4 10M5.5 16h5"/><path d="M14 19l4-9 4 9M15.5 16h5"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">Select Language</span>
+        <span class="text-[13.5px] text-gray-400 mr-1">English</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-100">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6"><circle cx="12" cy="10" r="7"/><circle cx="9.5" cy="9" r="0.9" fill="black" stroke="none"/><circle cx="14.5" cy="9" r="0.9" fill="black" stroke="none"/><path d="M9.5 12.5c1 .8 4 .8 5 0" stroke-linecap="round"/><path d="M12 3V1.5M9 3.3l-.6-1.3M15 3.3l.6-1.3"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">Welcome to RoamFi</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="flex items-center gap-3 px-4 py-4">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M7.5 9h9M7.5 12.5h9M7.5 16h5"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">RoamFi Guides</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <!-- Legal -->
+    <h3 class="text-[16px] font-bold text-black mb-3">Legal</h3>
+    <div class="bg-white rounded-2xl mb-5">
+      <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-100">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6" stroke-linejoin="round"><path d="M7 3h8l4 4v14a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M15 3v4h4"/><path d="M9 12.5h6M9 16h6"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">Terms &amp; Conditions</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-100">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="1.5"/><path d="M4 8.5h16M8 5v3.5"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">White Paper</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-100">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">Privacy Policy</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="flex items-center gap-3 px-4 py-4">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0114-5.3M18 4v4h-4"/><path d="M20 12a8 8 0 01-14 5.3M6 20v-4h4"/><text x="12" y="14.5" font-size="7" font-weight="700" text-anchor="middle" fill="black" stroke="none" font-family="-apple-system,sans-serif">$</text></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">Refund Policy</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <!-- Account -->
+    <h3 class="text-[16px] font-bold text-black mb-3">Account</h3>
+    <div class="bg-white rounded-2xl mb-4">
+      <div class="flex items-center gap-3 px-4 py-4 border-b border-gray-100">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 8l8 8" stroke-linecap="round"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium text-black">Delete Account</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="flex items-center gap-3 px-4 py-4">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#E4433B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H6a2 2 0 00-2 2v12a2 2 0 002 2h3"/><path d="M14 8l4 4-4 4"/><path d="M18 12H9"/></svg>
+        <span class="flex-1 text-[14.5px] font-medium" style="color:#E4433B;">Logout</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E4433B" stroke-width="2" opacity="0.6"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <p class="text-center text-[12.5px] text-gray-400 mb-4">Version 1.4.3</p>
+
+  </div>
+
+  <!-- Bottom tab bar -->
+  <div class="tabbar bg-white border-t border-gray-100 flex items-center justify-around pt-2 pb-2">
+    <button onclick="goToTab('home')" class="flex flex-col items-center gap-1">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><path d="M4 11.5L12 4l8 7.5V21a1 1 0 01-1 1h-5v-6H10v6H5a1 1 0 01-1-1V11.5z"/></svg>
+      <span class="text-[11px] font-medium text-gray-400">Home</span>
+    </button>
+    <button class="flex flex-col items-center gap-1">
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="#C4C7CC"/>
+        <circle cx="12" cy="12" r="4" fill="white"/>
+      </svg>
+      <span class="text-[11px] font-medium text-gray-400">eSIM</span>
+    </button>
+    <button onclick="goToTab('support')" class="flex flex-col items-center gap-1">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><path d="M4 4h16a1 1 0 011 1v10a1 1 0 01-1 1H9l-4 4v-4H4a1 1 0 01-1-1V5a1 1 0 011-1z"/></svg>
+      <span class="text-[11px] font-medium text-gray-400">Support</span>
+    </button>
+    <button class="flex flex-col items-center gap-1">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="black"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5" /></svg>
+      <span class="text-[11px] font-medium text-black">Me</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- ============ HISTORY PAGE ============ -->
+<div id="page-history" style="display:none">
+
+  <!-- Header -->
+  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-white">
+    <button onclick="closeHistory()" class="absolute left-5 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-[17px] font-bold text-black">History</h1>
+  </div>
+
+  <div class="bg-white px-5 content-pad2">
+
+    <div class="flex items-center justify-between py-4 border-b border-gray-100">
+      <div>
+        <div class="text-[15px] text-black">Recharge</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2025.11.29 13:25</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold">+60</span> USD</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-100">
+      <div>
+        <div class="text-[15px] text-black">Withdraw</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2025.11.21 01:04</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold">-120</span> USD</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-100">
+      <div>
+        <div class="text-[15px] text-black">Flex Data</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2025.11.18 00:28</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold" style="color:#E4433B;">-0.06</span> USD</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-100">
+      <div>
+        <div class="text-[15px] text-black">Flex Data</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2025.11.15 16:28</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold" style="color:#E4433B;">-0.01</span> USD</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-100">
+      <div>
+        <div class="text-[15px] text-black">Recharge</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2025.10.23 14:39</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold">+5</span> USD</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-100">
+      <div>
+        <div class="text-[15px] text-black">Flex Data</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2025.10.16 15:23</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold" style="color:#E4433B;">-0.01</span> USD</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-100">
+      <div>
+        <div class="text-[15px] text-black">Flex Data</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2025.10.15 19:22</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold" style="color:#E4433B;">-0.04</span> USD</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-100">
+      <div>
+        <div class="text-[15px] text-black">Flex Data</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2025.10.15 18:23</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold" style="color:#E4433B;">-0.05</span> USD</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ RF BONUS PAGE ============ -->
+<div id="page-rf-bonus" style="display:none">
+
+  <!-- Header -->
+  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-gray-100">
+    <button onclick="closeRfBonus()" class="absolute left-5 w-9 h-9 rounded-full bg-white flex items-center justify-center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-[17px] font-bold text-black">RF Bonus</h1>
+    <div class="absolute right-5 top-6">
+      <button onclick="toggleRfInfo(event,'rf-bonus-header-tooltip')" class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[15px] font-bold text-black">?</button>
+      <div id="rf-bonus-header-tooltip" class="rf-tooltip absolute right-0 top-11 bg-white rounded-2xl p-3.5 z-10" style="display:none;width:260px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid #EEF0F2;">
+        <span class="text-[12.5px] text-gray-500 leading-snug">RF is a bonus token which is provided separately from USD by revenue sharing program. To learn more what is RF, please go to Support tab, then FAQ → RF Bonus. More details about RF distribution rules <button onclick="openTokenRules('page-rf-bonus')" class="font-bold text-black underline">here</button>.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-100 px-5 pt-5 content-pad2">
+
+    <div class="bg-white rounded-2xl p-4 mb-5">
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-[13px] text-gray-400">RF Balance</span>
+        <span class="text-[13px] text-gray-400">USD</span>
+      </div>
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="11" fill="black"/>
+            <path d="M8.5 7h4.3c1.9 0 3.2 1 3.2 2.7 0 1.2-.7 2-1.7 2.4L17 17h-2.1l-2.4-4.5h-1.7V17H8.5V7zm2.3 1.7v2.5h1.9c.9 0 1.5-.4 1.5-1.25s-.6-1.25-1.5-1.25h-1.9z" fill="white"/>
+          </svg>
+          <span class="text-[22px] font-bold text-black">7437.71</span>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="flex items-center gap-1.5">
+          <svg width="20" height="20" viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.025 0C2.24975 0 0 2.24975 0 5.025C0 7.80025 2.24975 10.05 5.025 10.05C7.80025 10.05 10.05 7.80025 10.05 5.025C10.05 2.24975 7.80025 0 5.025 0ZM4.7733 4.3311C4.86364 4.42468 5.00892 4.51401 5.20903 4.59899C5.40913 4.68397 5.59785 4.77219 5.7754 4.86364C5.95284 4.9551 6.10616 5.05884 6.23536 5.17508C6.36444 5.29121 6.4655 5.42689 6.53864 5.58177C6.61178 5.73665 6.64841 5.9228 6.64841 6.13999C6.64841 6.50793 6.53172 6.80809 6.29822 7.04047C6.06473 7.27285 5.74693 7.40841 5.34459 7.44705V8.09583H4.83148V7.44392C4.36237 7.39434 4.00258 7.23366 3.75189 6.96141C3.5012 6.68928 3.37591 6.3305 3.37591 5.88517H4.46354C4.46354 6.1305 4.51781 6.31721 4.62646 6.44507C4.73511 6.57315 4.88955 6.63713 5.08965 6.63713C5.23594 6.63713 5.35107 6.59358 5.43504 6.50637C5.51879 6.41927 5.56089 6.29945 5.56089 6.14658C5.56089 5.97662 5.5189 5.84329 5.43504 5.74637C5.35107 5.64955 5.20367 5.5581 4.99284 5.47211C4.7819 5.38613 4.58727 5.29892 4.40871 5.2107C4.23016 5.12249 4.07628 5.0202 3.94719 4.90407C3.81811 4.78793 3.71906 4.65337 3.65027 4.5005C3.58137 4.34785 3.54698 4.16282 3.54698 3.94541C3.54698 3.58182 3.66959 3.28222 3.91492 3.0466C4.16014 2.81099 4.48721 2.67386 4.89603 2.63511V1.95417H5.40925V2.64806C5.80287 2.70624 6.11219 2.86816 6.33708 3.13381C6.56187 3.39958 6.67432 3.73681 6.67432 4.14551H5.58333C5.58333 3.92185 5.54023 3.74966 5.45413 3.62917C5.36815 3.50868 5.24543 3.44849 5.08631 3.44849C4.94427 3.44849 4.83405 3.49316 4.75544 3.58238C4.67694 3.67171 4.63763 3.79488 4.63763 3.95188C4.63774 4.11112 4.68285 4.23753 4.7733 4.3311Z" fill="black"/>
+          </svg>
+          <span class="text-[22px] font-bold text-black">7.98</span>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-100 my-3"></div>
+
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-[13px] text-gray-400">1 RF = 0.001072 USD <span class="bg-yellow-300 text-black text-[11px] font-bold px-1.5 py-0.5 rounded ml-1">+20%</span></span>
+        <button class="h-10 px-5 rounded-full text-[14px] font-bold text-black brand-btn">Exchange</button>
+      </div>
+
+      <div class="border-t border-gray-100 my-3"></div>
+
+      <div class="flex items-center">
+        <button class="flex-1 flex items-center justify-center gap-2 py-1">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v13M7 12l5 5 5-5"/><path d="M5 21h14"/></svg>
+          <span class="text-[14.5px] font-medium text-black">Receive</span>
+        </button>
+        <div class="w-px h-6 bg-gray-100"></div>
+        <button class="flex-1 flex items-center justify-center gap-2 py-1">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V7M7 12l5-5 5 5"/><path d="M5 3h14"/></svg>
+          <span class="text-[14.5px] font-medium text-black">Transfer</span>
+        </button>
+      </div>
+    </div>
+
+    <h3 class="text-[16px] font-bold text-black mb-1">History</h3>
+
+    <div class="flex items-center justify-between py-4 border-b border-gray-200">
+      <div>
+        <div class="text-[15px] text-black">Referral Reward</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2026.03.19 04:04</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold">+24.83</span> RF</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-200">
+      <div>
+        <div class="text-[15px] text-black">Referral Reward</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2026.03.19 03:46</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold">+24.83</span> RF</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-200">
+      <div>
+        <div class="text-[15px] text-black">Referral Reward</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2026.03.19 03:40</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold">+24.83</span> RF</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-200">
+      <div>
+        <div class="text-[15px] text-black">Referral Reward</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2026.02.28 02:51</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold">+24.83</span> RF</span>
+    </div>
+    <div class="flex items-center justify-between py-4 border-b border-gray-200">
+      <div>
+        <div class="text-[15px] text-black">Referral Reward</div>
+        <div class="text-[12.5px] text-gray-400 mt-0.5">2026.01.29 15:28</div>
+      </div>
+      <span class="text-[15px] text-black"><span class="font-bold">+24.83</span> RF</span>
+    </div>
+
+  </div>
 </div>
 
 <!-- ============ FAQ FILTER SHEET ============ -->
@@ -2066,6 +2410,32 @@
     window.scrollTo(0, 0);
   }
 
+  var historyOrigin = 'page-me';
+  function openHistory(originId) {
+    historyOrigin = originId || 'page-me';
+    document.getElementById(historyOrigin).style.display = 'none';
+    document.getElementById('page-history').style.display = '';
+    window.scrollTo(0, 0);
+  }
+  function closeHistory() {
+    document.getElementById('page-history').style.display = 'none';
+    document.getElementById(historyOrigin).style.display = '';
+    window.scrollTo(0, 0);
+  }
+
+  var rfBonusOrigin = 'page-me';
+  function openRfBonus(originId) {
+    rfBonusOrigin = originId || 'page-me';
+    document.getElementById(rfBonusOrigin).style.display = 'none';
+    document.getElementById('page-rf-bonus').style.display = '';
+    window.scrollTo(0, 0);
+  }
+  function closeRfBonus() {
+    document.getElementById('page-rf-bonus').style.display = 'none';
+    document.getElementById(rfBonusOrigin).style.display = '';
+    window.scrollTo(0, 0);
+  }
+
   var rsOrigin = 'page-summary';
   function openRevenueSharing(originId) {
     rsOrigin = originId;
@@ -2098,9 +2468,9 @@
   }
 
   var referralOrigin = 'page-home';
-  function openReferral() {
-    referralOrigin = 'page-home';
-    document.getElementById('page-home').style.display = 'none';
+  function openReferral(originId) {
+    referralOrigin = originId || 'page-home';
+    document.getElementById(referralOrigin).style.display = 'none';
     document.getElementById('page-referral').style.display = '';
     window.scrollTo(0, 0);
   }
@@ -2124,16 +2494,10 @@
     el.classList.add('ref-filter-active');
   }
 
-  var supportOrigin = 'page-home';
-  function openSupport() {
-    supportOrigin = 'page-home';
-    document.getElementById('page-home').style.display = 'none';
-    document.getElementById('page-support').style.display = '';
-    window.scrollTo(0, 0);
-  }
-  function closeSupport() {
-    document.getElementById('page-support').style.display = 'none';
-    document.getElementById(supportOrigin).style.display = '';
+  function goToTab(tab) {
+    ['page-home', 'page-support', 'page-me'].forEach(function(id) {
+      document.getElementById(id).style.display = (id === 'page-' + tab) ? '' : 'none';
+    });
     window.scrollTo(0, 0);
   }
 
