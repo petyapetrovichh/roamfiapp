@@ -64,6 +64,7 @@
   .sim-btn.sim-active { border-color: var(--brand); background: rgba(5,227,247,.08); }
 
   .rs-stat { background:#F4F5F6; border-radius:16px; padding:16px 8px; text-align:center; }
+  .faq-filter-opt.faq-filter-active { background:#F3F4F6; }
   .rs-bar-track { flex:1; height:8px; border-radius:9999px; background:#F4F5F6; overflow:hidden; }
   .rs-bar-fill { height:100%; border-radius:9999px; background:var(--brand); }
 </style>
@@ -231,25 +232,25 @@
 
   <!-- Bottom tab bar -->
   <div class="tabbar bg-white border-t border-gray-100 flex items-center justify-around pt-2 pb-2">
-    <div class="flex flex-col items-center gap-1">
+    <button class="flex flex-col items-center gap-1">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="black"><path d="M4 11.5L12 4l8 7.5V21a1 1 0 01-1 1h-5v-6H10v6H5a1 1 0 01-1-1V11.5z"/></svg>
       <span class="text-[11px] font-medium text-black">Home</span>
-    </div>
-    <div class="flex flex-col items-center gap-1">
+    </button>
+    <button class="flex flex-col items-center gap-1">
       <svg width="24" height="24" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="10" fill="#C4C7CC"/>
         <circle cx="12" cy="12" r="4" fill="white"/>
       </svg>
       <span class="text-[11px] font-medium text-gray-400">eSIM</span>
-    </div>
-    <div class="flex flex-col items-center gap-1">
+    </button>
+    <button onclick="openSupport()" class="flex flex-col items-center gap-1">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><path d="M4 4h16a1 1 0 011 1v10a1 1 0 01-1 1H9l-4 4v-4H4a1 1 0 01-1-1V5a1 1 0 011-1z"/></svg>
       <span class="text-[11px] font-medium text-gray-400">Support</span>
-    </div>
-    <div class="flex flex-col items-center gap-1">
+    </button>
+    <button class="flex flex-col items-center gap-1">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5" /></svg>
       <span class="text-[11px] font-medium text-gray-400">Me</span>
-    </div>
+    </button>
   </div>
 
 </div>
@@ -1203,12 +1204,12 @@
 
     <!-- Tier list -->
     <div class="bg-white rounded-2xl p-2 mb-3">
-      <div class="grid items-center px-3 py-3.5 border-b border-gray-100" style="grid-template-columns:1fr 1fr auto;">
+      <div class="grid items-center px-3 py-3.5" style="grid-template-columns:1fr 1fr auto;">
         <div class="font-bold text-[14.5px] text-black">Explorer</div>
         <div class="text-[12.5px] text-gray-400">1–5 activated</div>
         <span class="border border-gray-300 text-black text-[13px] font-bold px-3.5 py-1.5 rounded-full justify-self-end">30%</span>
       </div>
-      <div class="grid items-center px-3 py-3.5 border-b border-gray-100" style="grid-template-columns:1fr 1fr auto;">
+      <div class="grid items-center px-3 py-3.5" style="grid-template-columns:1fr 1fr auto;">
         <div class="font-bold text-[14.5px] text-black">Traveler</div>
         <div class="text-[12.5px] text-gray-400">5–10 activated</div>
         <span class="border border-gray-300 text-black text-[13px] font-bold px-3.5 py-1.5 rounded-full justify-self-end">40%</span>
@@ -1218,7 +1219,7 @@
         <div class="text-[12.5px] text-gray-500">10–50 activated</div>
         <span class="brand-btn text-black text-[13px] font-bold px-3.5 py-1.5 rounded-full justify-self-end">50%</span>
       </div>
-      <div class="grid items-center px-3 py-3.5 border-b border-gray-100" style="grid-template-columns:1fr 1fr auto;">
+      <div class="grid items-center px-3 py-3.5" style="grid-template-columns:1fr 1fr auto;">
         <div class="font-bold text-[14.5px] text-black">Roamer</div>
         <div class="text-[12.5px] text-gray-400">50–200 activated</div>
         <span class="border border-gray-300 text-black text-[13px] font-bold px-3.5 py-1.5 rounded-full justify-self-end">60%</span>
@@ -1304,6 +1305,458 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- ============ SUPPORT / FAQ PAGE ============ -->
+<div id="page-support" style="display:none">
+
+  <div class="px-5 pt-6 content-pad2">
+
+    <!-- Search bar -->
+    <div class="flex items-center gap-2.5 mb-5">
+      <div class="flex-1 bg-gray-100 rounded-2xl h-12 flex items-center px-4 gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35" stroke-linecap="round"/></svg>
+        <span class="text-gray-400 text-[15px]">Type your question</span>
+      </div>
+      <button class="w-11 h-11 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0116 0v4a2 2 0 01-2 2h-1v-6h3M4 17v-4a8 8 0 0116 0" /><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/></svg>
+      </button>
+    </div>
+
+    <!-- FAQ header -->
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="text-[21px] font-bold text-black">FAQ</h1>
+      <button onclick="openFaqFilter()" class="flex items-center gap-1.5 border border-gray-200 rounded-full h-9 px-3.5">
+        <span id="faq-filter-label" class="text-[13.5px] font-medium text-black">All</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+
+    <!-- Question list -->
+    <div id="faq-list">
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="revenue-sharing">
+        <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How does revenue sharing work at RoamFi?</span>
+          <svg id="faq-chevron-1" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-1" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">On every eSIM purchase, half of RoamFi&#x27;s net margin (after subtracting the provider cost) doesn&#x27;t go to the company — it goes into a shared pool that&#x27;s automatically distributed to earlier buyers. Example: a $10 purchase with a $5 cost price leaves a $5 margin — $2.5 stays with the company, $2.5 goes into the distribution pool. This isn&#x27;t a referral bonus — it&#x27;s built into every transaction.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="revenue-sharing">
+        <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Who receives a share from the Revenue Sharing Pool?</span>
+          <svg id="faq-chevron-2" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-2" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Anyone who has purchased an eSIM from RoamFi within the last 365 days. Your share doesn&#x27;t depend on who referred whom — distribution happens across all active buyers, weighted by which of the 4 time windows they fall into.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="revenue-sharing">
+        <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Do I need a referral link to get a share?</span>
+          <svg id="faq-chevron-3" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-3" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, participation is fully automatic. Simply buying an eSIM enters you into the pool for 365 days — no link-sharing, tracking, or separate account is required.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="revenue-sharing">
+        <button onclick="toggleFaq(4)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">When does the payout land after a purchase?</span>
+          <svg id="faq-chevron-4" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-4" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Instantly, right after every purchase made by any user on the platform — not once a day or once a month.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="revenue-sharing">
+        <button onclick="toggleFaq(5)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How is the pool split across the four time windows?</span>
+          <svg id="faq-chevron-5" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-5" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">The pool is split into 4 windows based on how recently a buyer purchased, relative to the moment of a new sale: 40% of the pool goes to buyers from the last 24 hours, 30% to buyers from 1–7 days ago, 20% to buyers from 8–30 days ago, and 10% to buyers from 31–365 days ago. The more recent the purchase, the higher the weight, but eligibility lasts the full 365 days.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="revenue-sharing">
+        <button onclick="toggleFaq(6)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Example: I bought my eSIM 17 days ago — how much do I get from someone else&#x27;s purchase right now?</span>
+          <svg id="faq-chevron-6" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-6" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">A purchase from 17 days ago falls into the “8–30 days” window, which receives 20% of the pool on every new sale. The exact amount depends on how many other people are also in that window at the time of the sale — the 20% is split among all of them, not paid out to one person.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="revenue-sharing">
+        <button onclick="toggleFaq(7)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How is the share split between multiple people inside the same time window?</span>
+          <svg id="faq-chevron-7" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-7" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Within a window, the payout is split in proportion to how much each person spent on their purchases in that window — not split evenly. Example: 5 people are in the “8–30 days” window, having spent $100 combined, and $20 of that was your purchase — you get 1/5 of the amount allocated to that window.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="revenue-sharing">
+        <button onclick="toggleFaq(8)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How do I withdraw my accumulated balance?</span>
+          <svg id="faq-chevron-8" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-8" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Since money from the Revenue Sharing Pool is credited directly to your account&#x27;s USD balance, you can either spend it within RoamFi or withdraw it to fiat or crypto from the app — no additional KYC is required beyond standard email registration.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(9)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How do I install and activate a RoamFi eSIM?</span>
+          <svg id="faq-chevron-9" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-9" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Setup takes 3 steps: download the RoamFi app, register with your email and confirmation code, then install the eSIM by scanning a QR code or entering the activation code manually over Wi-Fi with Airplane Mode off. After that, enable Data Roaming and Allow Data Switching in your phone&#x27;s settings.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(10)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What&#x27;s the difference between Flex and Fix on RoamFi?</span>
+          <svg id="faq-chevron-10" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-10" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Flex is one eSIM, installed once, that keeps working across 200+ countries without reinstalling, and its balance never expires. Fix requires a new eSIM install for every new trip and is tied to a specific region and validity period.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(11)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How do I check if my phone supports eSIM?</span>
+          <svg id="faq-chevron-11" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-11" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Dial *#06# on your phone: if an EID appears, your device supports eSIM. If only an MEID or SEID shows up, it doesn&#x27;t. On iPhone, you can also check SIM lock status under Settings → General → About. On Android, under Settings → About Phone → SIM Status.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(12)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What should I do if my RoamFi eSIM won&#x27;t connect or shows no data usage?</span>
+          <svg id="faq-chevron-12" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-12" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">In most cases, the cause is Data Roaming or Allow Data Switching being turned off in your phone&#x27;s cellular settings. Check both toggles first, before contacting support.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(13)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Does RoamFi support calls or SMS?</span>
+          <svg id="faq-chevron-13" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-13" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, the standard RoamFi eSIM is data-only, with no voice calls or SMS. A few specific destinations (Philippines SMART, US T-Mobile, Guam IT&amp;E, Vietnam Vietnamobile) include a phone number as an exception — this isn&#x27;t the case across all countries.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(14)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Can I transfer a RoamFi eSIM to another device?</span>
+          <svg id="faq-chevron-14" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-14" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, each eSIM is tied to one device for a single use and can&#x27;t be reinstalled once removed. Don&#x27;t delete an active eSIM before its validity period ends — doing so causes permanent loss of access.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(15)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How long do I have to install my eSIM after purchase?</span>
+          <svg id="faq-chevron-15" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-15" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">30 days from the eSIM&#x27;s issue date to install and scan the QR code onto your device. After that window, the eSIM becomes invalid.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(16)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How do I check my remaining balance and data usage?</span>
+          <svg id="faq-chevron-16" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-16" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Your Flex balance and current package&#x27;s data usage are visible in the RoamFi app at any time, with no need to contact support.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(17)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Does my Flex balance expire if I don&#x27;t use it?</span>
+          <svg id="faq-chevron-17" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-17" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, Flex balance has no expiration date and never expires. This differs from Fix plans, which are tied to a specific trip duration.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="comparing">
+        <button onclick="toggleFaq(18)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How is RoamFi different from Airalo?</span>
+          <svg id="faq-chevron-18" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-18" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Airalo is a standard eSIM marketplace; RoamFi runs a revenue-sharing model for all users on top of the same core eSIM service, paying out from all future platform sales for 365 days after every purchase. Core functionality (coverage, QR-code activation) is similar between the two — the difference is in the benefits for the eSIM buyer.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="comparing">
+        <button onclick="toggleFaq(19)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How is RoamFi different from Holafly?</span>
+          <svg id="faq-chevron-19" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-19" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Holafly mainly sells unlimited plans for a single country; RoamFi offers Flex mode, where one eSIM works across 200+ countries without reinstalling when you change region, plus a revenue-sharing model on every purchase. RoamFi doesn&#x27;t have a direct unlimited plan at Holafly&#x27;s price point — compare specific plans against the current pricing table.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="comparing">
+        <button onclick="toggleFaq(20)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Are RoamFi and Roamify the same service?</span>
+          <svg id="faq-chevron-20" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-20" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, these are different companies. RoamFi is an eSIM platform within the TaleX ecosystem with a revenue-sharing model; Roamify is a separate, independent eSIM/API provider unrelated to RoamFi. Similar names aren&#x27;t an indicator of shared ownership or service quality.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="comparing">
+        <button onclick="toggleFaq(21)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Which eSIM provider should I choose instead of regular roaming?</span>
+          <svg id="faq-chevron-21" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-21" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">For a single short trip to one country, the difference between providers (Airalo, Holafly, RoamFi, Roamify) mostly comes down to price per GB; for frequent trips across multiple countries, a provider with one eSIM covering multiple regions without reinstalling is more convenient — that&#x27;s RoamFi&#x27;s Flex mode.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="legitimacy">
+        <button onclick="toggleFaq(22)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Is RoamFi a legitimate service?</span>
+          <svg id="faq-chevron-22" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-22" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Yes: RoamFi is a joint venture between Japan eSIM Co., Ltd. and TaleX Protocol, part of the TaleX ecosystem, with email-only registration and no document requirements (no KYC). The full purchase history of every user is publicly visible in real time on the website and in the app as part of the revenue sharing program — this is open data, not a closed internal system.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="legitimacy">
+        <button onclick="toggleFaq(23)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Who is behind RoamFi?</span>
+          <svg id="faq-chevron-23" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-23" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">RoamFi was launched by Japan eSIM Co., Ltd. together with TaleX Protocol, as part of the TaleX ecosystem, which also includes ViewsCall and the TaleX content app. Japan eSIM Co., Ltd. is one of the largest eSIM companies in Japan, giving RoamFi an operational foundation beyond just a brand name.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="legitimacy">
+        <button onclick="toggleFaq(24)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What if RoamFi support doesn&#x27;t respond?</span>
+          <svg id="faq-chevron-24" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-24" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">The RoamFi app has a support contact form for issues with activation, payment, or balance. For urgent technical issues (no connection, no data showing), check your phone&#x27;s Data Roaming and Allow Data Switching settings first — this resolves most cases without waiting on a support reply.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="use-cases">
+        <button onclick="toggleFaq(25)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Is RoamFi good for digital nomads?</span>
+          <svg id="faq-chevron-25" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-25" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Yes, thanks to Flex mode: one eSIM, installed once, keeps working as you move between 200+ countries without reinstalling. This solves the core pain point of a nomad&#x27;s routine: not having to buy a new eSIM in every new country.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="use-cases">
+        <button onclick="toggleFaq(26)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Can I use RoamFi as a backup connection if my main SIM is unavailable?</span>
+          <svg id="faq-chevron-26" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-26" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Yes. Since the eSIM can be installed ahead of time and activates on arrival, you can keep a RoamFi eSIM as a backup data channel for issues with your local SIM or carrier, without a physical card swap.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="use-cases">
+        <button onclick="toggleFaq(27)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Is RoamFi suitable for a family trip with multiple people?</span>
+          <svg id="faq-chevron-27" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-27" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Each device needs its own eSIM — a RoamFi eSIM can&#x27;t be transferred between devices or shared across multiple phones on one profile. For a family with several phones, each device needs its own separate installation.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="top-destinations">
+        <button onclick="toggleFaq(28)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Which eSIM plan should I choose for a trip to Japan?</span>
+          <svg id="faq-chevron-28" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-28" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">For a single-country trip with a fixed duration, a Fix plan with a fresh eSIM install for that trip works well. For frequent trips to Japan and elsewhere, a Flex balance — which never expires and doesn&#x27;t require reinstalling — is the better fit.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="top-destinations">
+        <button onclick="toggleFaq(29)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Does RoamFi work across all of Europe on one eSIM?</span>
+          <svg id="faq-chevron-29" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-29" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Yes, Flex mode covers all supported European countries on a single eSIM profile, with no reinstalling required when crossing borders within the coverage list. Check the current country list on the plans page before your trip.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="top-destinations">
+        <button onclick="toggleFaq(30)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Which eSIM plan should I choose for a trip to the US?</span>
+          <svg id="faq-chevron-30" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-30" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">A Fix plan is available for a specific US trip. Some Fix eSIMs in certain regions (including some US plans) come with a phone number, which you can check in your device settings — this isn&#x27;t included by default with the standard data-only eSIM.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="esim-basics">
+        <button onclick="toggleFaq(31)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How is eSIM different from regular carrier roaming?</span>
+          <svg id="faq-chevron-31" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-31" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">An eSIM is a built-in chip that remotely downloads a carrier profile — no physical SIM card, and no roaming charges from your home carrier. Switching carriers or countries happens in your phone&#x27;s settings, not at a store or carrier counter.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="esim-basics">
+        <button onclick="toggleFaq(32)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Do I need identity verification (KYC) to use RoamFi?</span>
+          <svg id="faq-chevron-32" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-32" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, registration only requires an email address and confirmation code — no document upload. This is a lower barrier to entry than services that require passport details for a physical SIM card.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
+        <button onclick="toggleFaq(33)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What is RF Bonus?</span>
+          <svg id="faq-chevron-33" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-33" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">RF Bonus is RoamFi&#x27;s reward token, earned on purchases and referrals — like a loyalty program, except instead of points that expire inside the app, you get an asset with real market value that can be exchanged.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
+        <button onclick="toggleFaq(34)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How do I earn RF Bonus?</span>
+          <svg id="faq-chevron-34" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-34" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">RF Bonus is credited automatically on every eSIM data purchase and when you refer new users. There&#x27;s nothing separate to apply for or request — it lands on your balance on its own.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
+        <button onclick="toggleFaq(35)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Is RF Bonus the same as a Revenue Sharing Pool share?</span>
+          <svg id="faq-chevron-35" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-35" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, these are two separate mechanisms. The Revenue Sharing Pool is a share of the company&#x27;s net margin, split among recent buyers by time window. RF Bonus is a separate reward for the purchase or referral itself, unrelated to other users&#x27; pool distributions.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
+        <button onclick="toggleFaq(36)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What can I do with RF Bonus?</span>
+          <svg id="faq-chevron-36" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-36" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">You can convert RF Bonus to your USD balance with a +20% conversion bonus, or withdraw it to a crypto wallet for external trading — it&#x27;s not locked to a single store. Inside the app itself, RF Bonus isn&#x27;t spent directly: converting it to your USD balance is how it gets used.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
+        <button onclick="toggleFaq(37)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How do I exchange RF Bonus for real money?</span>
+          <svg id="faq-chevron-37" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-37" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Through the conversion feature in the RoamFi app: RF Bonus converts to your USD balance with a +20% bonus, and that USD balance can then be withdrawn as regular funds.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
+        <button onclick="toggleFaq(38)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Does RF Bonus expire if I don&#x27;t use it?</span>
+          <svg id="faq-chevron-38" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-38" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, unlike traditional loyalty points, RF Bonus has no expiration date. It stays on your balance until you choose to use or convert it.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
+        <button onclick="toggleFaq(39)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Do I need a crypto wallet to earn RF Bonus?</span>
+          <svg id="faq-chevron-39" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-39" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">No, RF Bonus is credited and held directly in your RoamFi app account. A separate external wallet isn&#x27;t required for basic earning and holding.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="rf-bonus">
+        <button onclick="toggleFaq(40)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Where can I find the exact RF Bonus reward rules?</span>
+          <svg id="faq-chevron-40" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-40" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">The full rules — exactly how much you earn per purchase and per referral — are published on a dedicated page: roamfi.net/reward/rule. This FAQ only covers the general mechanics.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom tab bar -->
+  <div class="tabbar bg-white border-t border-gray-100 flex items-center justify-around pt-2 pb-2">
+    <button onclick="closeSupport()" class="flex flex-col items-center gap-1">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><path d="M4 11.5L12 4l8 7.5V21a1 1 0 01-1 1h-5v-6H10v6H5a1 1 0 01-1-1V11.5z"/></svg>
+      <span class="text-[11px] font-medium text-gray-400">Home</span>
+    </button>
+    <button class="flex flex-col items-center gap-1">
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="#C4C7CC"/>
+        <circle cx="12" cy="12" r="4" fill="white"/>
+      </svg>
+      <span class="text-[11px] font-medium text-gray-400">eSIM</span>
+    </button>
+    <button class="flex flex-col items-center gap-1">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="black"><path d="M4 4h16a1 1 0 011 1v10a1 1 0 01-1 1H9l-4 4v-4H4a1 1 0 01-1-1V5a1 1 0 011-1z"/></svg>
+      <span class="text-[11px] font-medium text-black">Support</span>
+    </button>
+    <button class="flex flex-col items-center gap-1">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#C4C7CC"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5" /></svg>
+      <span class="text-[11px] font-medium text-gray-400">Me</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- ============ FAQ FILTER SHEET ============ -->
+<div id="faq-filter-backdrop" onclick="closeFaqFilter()" style="display:none; position:fixed; inset:0; background:rgba(10,10,10,0.5); z-index:220;"></div>
+<div id="faq-filter-sheet" style="display:none; position:fixed; left:0; right:0; bottom:0; max-width:480px; margin:0 auto; background:#fff; border-radius:24px 24px 0 0; z-index:221; padding:10px 16px calc(24px + env(safe-area-inset-bottom,0px)); max-height:75vh; overflow-y:auto;">
+  <div style="width:36px; height:4px; background:#E5E7EB; border-radius:9999px; margin:0 auto 18px;"></div>
+  <div class="flex flex-col mb-4">
+    <button onclick="pickFaqFilter(this,'all','All')" data-key="all" class="faq-filter-opt faq-filter-active w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">All</span>
+    </button>
+    <button onclick="pickFaqFilter(this,'technical','Technical Questions')" data-key="technical" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Technical Questions</span>
+    </button>
+    <button onclick="pickFaqFilter(this,'revenue-sharing','Revenue Sharing')" data-key="revenue-sharing" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Revenue Sharing</span>
+    </button>
+    <button onclick="pickFaqFilter(this,'comparing','Comparing RoamFi to Other Providers')" data-key="comparing" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Comparing RoamFi to Other Providers</span>
+    </button>
+    <button onclick="pickFaqFilter(this,'legitimacy','Legitimacy and Trust')" data-key="legitimacy" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Legitimacy and Trust</span>
+    </button>
+    <button onclick="pickFaqFilter(this,'use-cases','Use Cases')" data-key="use-cases" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Use Cases</span>
+    </button>
+    <button onclick="pickFaqFilter(this,'top-destinations','Top Destinations')" data-key="top-destinations" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Top Destinations</span>
+    </button>
+    <button onclick="pickFaqFilter(this,'esim-basics','eSIM Basics')" data-key="esim-basics" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">eSIM Basics</span>
+    </button>
+    <button onclick="pickFaqFilter(this,'rf-bonus','RF Bonus')" data-key="rf-bonus" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">RF Bonus</span>
+    </button>
+  </div>
+  <button onclick="confirmFaqFilter()" class="w-full h-13 rounded-full bg-black text-white text-[15px] font-bold" style="height:52px;">Confirm</button>
 </div>
 
 <script>
@@ -1485,6 +1938,61 @@
   function showReferralFilter(el) {
     document.querySelectorAll('#page-referral .ref-filter').forEach(function(b) { b.classList.remove('ref-filter-active'); });
     el.classList.add('ref-filter-active');
+  }
+
+  var supportOrigin = 'page-home';
+  function openSupport() {
+    supportOrigin = 'page-home';
+    document.getElementById('page-home').style.display = 'none';
+    document.getElementById('page-support').style.display = '';
+    window.scrollTo(0, 0);
+  }
+  function closeSupport() {
+    document.getElementById('page-support').style.display = 'none';
+    document.getElementById(supportOrigin).style.display = '';
+    window.scrollTo(0, 0);
+  }
+
+  function toggleFaq(id) {
+    var ans = document.getElementById('faq-answer-' + id);
+    var chev = document.getElementById('faq-chevron-' + id);
+    var open = ans.style.display !== 'none';
+    ans.style.display = open ? 'none' : '';
+    chev.style.transform = open ? '' : 'rotate(90deg)';
+  }
+
+  var appliedFaqFilter = { key: 'all', label: 'All' };
+  var pendingFaqFilter = { key: 'all', label: 'All' };
+
+  function openFaqFilter() {
+    pendingFaqFilter = { key: appliedFaqFilter.key, label: appliedFaqFilter.label };
+    document.querySelectorAll('.faq-filter-opt').forEach(function(opt) {
+      opt.classList.toggle('faq-filter-active', opt.dataset.key === appliedFaqFilter.key);
+    });
+    document.getElementById('faq-filter-backdrop').style.display = 'block';
+    document.getElementById('faq-filter-sheet').style.display = 'block';
+  }
+  function closeFaqFilter() {
+    document.getElementById('faq-filter-backdrop').style.display = 'none';
+    document.getElementById('faq-filter-sheet').style.display = 'none';
+  }
+
+  function pickFaqFilter(el, key, label) {
+    pendingFaqFilter = { key: key, label: label };
+    document.querySelectorAll('.faq-filter-opt').forEach(function(opt) {
+      opt.classList.toggle('faq-filter-active', opt.dataset.key === key);
+    });
+  }
+
+  function confirmFaqFilter() {
+    appliedFaqFilter = { key: pendingFaqFilter.key, label: pendingFaqFilter.label };
+    document.getElementById('faq-filter-label').textContent = appliedFaqFilter.label;
+    document.querySelectorAll('.faq-card').forEach(function(card) {
+      card.style.display = (appliedFaqFilter.key === 'all' || card.dataset.cat === appliedFaqFilter.key) ? '' : 'none';
+    });
+    closeFaqFilter();
+    document.getElementById('page-support').scrollTop = 0;
+    window.scrollTo(0, 0);
   }
 
   showTab('data');
