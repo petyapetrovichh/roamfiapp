@@ -749,8 +749,8 @@
 <div id="page-revenue-sharing" style="display:none">
 
   <!-- Header -->
-  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-white">
-    <button onclick="closeRevenueSharing()" class="absolute left-5 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-gray-100">
+    <button onclick="closeRevenueSharing()" class="absolute left-5 w-9 h-9 rounded-full bg-white flex items-center justify-center">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
     </button>
     <h1 class="text-[17px] font-bold text-black">Revenue Sharing Rules</h1>
@@ -773,6 +773,7 @@
       <div class="bg-white rounded-2xl p-4 mb-4">
         <div class="mb-5">
           <div class="font-bold text-[13px] text-black mb-2">You purchased eSIM</div>
+          <div class="relative" onclick="openZoomModal(this)">
           <svg width="100%" viewBox="0 0 960 430" role="img">
             <title>You purchase an eSIM and past buyers earn from it</title>
             <path d="M76,144 C110,144 110,94 150,94" fill="none" stroke="#B4BABF" stroke-width="2"/>
@@ -809,10 +810,15 @@
             <text x="820" y="390" font-size="13" fill="#5D6164" text-anchor="start">307 days ago</text>
             <text x="820" y="16" font-size="12" font-weight="700" fill="#9AA0A6" text-anchor="start">Bought RoamFi eSIM</text>
           </svg>
+          <div class="absolute bottom-2 right-2 bg-black/70 rounded-full w-8 h-8 flex items-center justify-center pointer-events-none">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg>
+          </div>
+        </div>
         </div>
         <div class="border-t border-gray-100 mb-5"></div>
         <div>
           <div class="font-bold text-[13px] text-black mb-2">Someone purchased eSIM after you</div>
+          <div class="relative" onclick="openZoomModal(this)">
           <svg width="100%" viewBox="0 0 960 430" role="img">
             <title>Someone else purchases an eSIM after you, and you earn from it</title>
             <path d="M76,144 C110,144 110,94 150,94" fill="none" stroke="#B4BABF" stroke-width="2"/>
@@ -849,6 +855,10 @@
             <text x="820" y="390" font-size="13" fill="#5D6164" text-anchor="start">307 days ago</text>
             <text x="820" y="16" font-size="12" font-weight="700" fill="#9AA0A6" text-anchor="start">Bought RoamFi eSIM</text>
           </svg>
+          <div class="absolute bottom-2 right-2 bg-black/70 rounded-full w-8 h-8 flex items-center justify-center pointer-events-none">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -874,7 +884,8 @@
 
       <h3 class="text-[16px] font-bold text-black text-center mb-3">How money flows</h3>
       <div class="bg-white rounded-2xl p-4 mb-4">
-        <svg width="100%" viewBox="0 0 720 345" role="img">
+        <div class="relative" onclick="openZoomModal(this)">
+          <svg width="100%" viewBox="0 0 720 345" role="img">
           <title>How RoamFi eSIM revenue splits between the company and the revenue sharing pool</title>
           <path d="M360,88 C360,112 185,112 185,138" fill="none" stroke="#B4BABF" stroke-width="2"/>
           <path d="M360,88 C360,112 505,112 505,138" fill="none" stroke="#B4BABF" stroke-width="2"/>
@@ -898,6 +909,10 @@
           <text x="605" y="275" font-size="15" font-weight="700" fill="#0C1214" text-anchor="middle" dominant-baseline="central">Revenue sharing pool</text>
           <text x="605" y="298" font-size="12" fill="#0C1214" opacity="0.7" text-anchor="middle" dominant-baseline="central">Shared with past buyers</text>
         </svg>
+          <div class="absolute bottom-2 right-2 bg-black/70 rounded-full w-8 h-8 flex items-center justify-center pointer-events-none">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg>
+          </div>
+        </div>
       </div>
 
       <!-- Example (repeated) -->
@@ -918,7 +933,8 @@
       <!-- Revenue sharing pool diagram -->
       <h3 class="text-[16px] font-bold text-black text-center mb-3">Revenue sharing pool</h3>
       <div class="bg-white rounded-2xl p-4 mb-4">
-        <svg width="100%" viewBox="0 0 860 430" role="img">
+        <div class="relative" onclick="openZoomModal(this)">
+          <svg width="100%" viewBox="0 0 860 430" role="img">
           <title>How the revenue sharing pool is split by recency and paid out over time</title>
           <rect x="250" y="20" width="340" height="64" rx="18" fill="#05E3F7"/>
           <text x="420" y="42" font-size="15" font-weight="700" fill="#0C1214" text-anchor="middle" dominant-baseline="central">50% RoamFi business revenue</text>
@@ -963,6 +979,10 @@
           <rect x="270" y="360" width="300" height="50" rx="25" fill="#05E3F7"/>
           <text x="420" y="385" font-size="14" font-weight="700" fill="#0C1214" text-anchor="middle" dominant-baseline="central">Your USD balance grows automatically</text>
         </svg>
+          <div class="absolute bottom-2 right-2 bg-black/70 rounded-full w-8 h-8 flex items-center justify-center pointer-events-none">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M10.5 8v5M8 10.5h5"/></svg>
+          </div>
+        </div>
       </div>
 
       <div class="flex flex-col gap-2 mb-4 px-1">
@@ -1125,54 +1145,80 @@
       <!-- Purchase history -->
       <h3 class="text-[16px] font-bold text-black mb-2">RoamFi eSIM purchases history</h3>
       <p class="text-[12.5px] text-gray-400 mb-3">Full transparency — every eSIM purchase made on RoamFi, in real time.</p>
-      <div class="bg-white rounded-2xl overflow-hidden">
-        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
-          <span class="text-[13px] font-bold text-black">eSIM — Japan, 5GB / 7 days</span>
-          <span class="text-[13px] font-bold text-black">$12.00</span>
-        </div>
-        <div class="flex items-center justify-between px-4 pb-3">
-          <span class="text-[11px] text-gray-400">#849213 · Aug 6, 2026, 14:32</span>
-        </div>
-        <div class="flex items-center justify-between px-4 py-3 border-t border-b border-gray-100">
-          <span class="text-[13px] font-bold text-black">eSIM — Singapore, 3GB / 5 days</span>
-          <span class="text-[13px] font-bold text-black">$8.50</span>
-        </div>
-        <div class="flex items-center justify-between px-4 pb-3">
-          <span class="text-[11px] text-gray-400">#849187 · Aug 6, 2026, 11:05</span>
-        </div>
-        <div class="flex items-center justify-between px-4 py-3 border-t border-b border-gray-100">
-          <span class="text-[13px] font-bold text-black">eSIM — United States, 10GB / 30 days</span>
-          <span class="text-[13px] font-bold text-black">$24.00</span>
-        </div>
-        <div class="flex items-center justify-between px-4 pb-3">
-          <span class="text-[11px] text-gray-400">#849154 · Aug 5, 2026, 22:47</span>
-        </div>
-        <div class="flex items-center justify-between px-4 py-3 border-t border-b border-gray-100">
-          <span class="text-[13px] font-bold text-black">eSIM — Germany, 5GB / 10 days</span>
-          <span class="text-[13px] font-bold text-black">$11.00</span>
-        </div>
-        <div class="flex items-center justify-between px-4 pb-3">
-          <span class="text-[11px] text-gray-400">#849098 · Aug 5, 2026, 16:13</span>
-        </div>
-        <div class="flex items-center justify-between px-4 py-3 border-t border-b border-gray-100">
-          <span class="text-[13px] font-bold text-black">eSIM — Turkey, 3GB / 7 days</span>
-          <span class="text-[13px] font-bold text-black">$9.00</span>
-        </div>
-        <div class="flex items-center justify-between px-4 pb-3">
-          <span class="text-[11px] text-gray-400">#849051 · Aug 5, 2026, 09:28</span>
-        </div>
-        <div class="flex items-center justify-between px-4 py-3 border-t border-gray-100">
-          <span class="text-[13px] font-bold text-black">eSIM — Thailand, 20GB / 30 days</span>
-          <span class="text-[13px] font-bold text-black">$29.00</span>
-        </div>
-        <div class="flex items-center justify-between px-4 pb-3">
-          <span class="text-[11px] text-gray-400">#848997 · Aug 4, 2026, 20:56</span>
+      <div class="bg-white rounded-2xl overflow-hidden mb-4">
+        <div class="overflow-x-auto no-scrollbar">
+          <div style="min-width:620px;">
+            <div class="flex items-center px-4 py-3 border-b border-gray-100">
+              <span class="text-[11px] text-gray-400" style="width:90px;">Order ID</span>
+              <span class="text-[11px] text-gray-400" style="width:240px;">eSIM</span>
+              <span class="text-[11px] text-gray-400" style="width:190px;">Purchased</span>
+              <span class="text-[11px] text-gray-400 text-right" style="width:100px;">Price</span>
+            </div>
+            <div class="flex items-center px-4 py-3.5 border-b border-gray-100">
+              <span class="text-[13px] text-black" style="width:90px;">849213</span>
+              <span class="text-[13px] font-medium text-black" style="width:240px;">eSIM — Japan, 5GB / 7 days</span>
+              <span class="text-[12.5px] text-gray-500" style="width:190px;">Aug 6, 2026, 14:32</span>
+              <span class="text-[13px] font-medium text-black text-right" style="width:100px;">$12.00</span>
+            </div>
+            <div class="flex items-center px-4 py-3.5 border-b border-gray-100">
+              <span class="text-[13px] text-black" style="width:90px;">849187</span>
+              <span class="text-[13px] font-medium text-black" style="width:240px;">eSIM — Singapore, 3GB / 5 days</span>
+              <span class="text-[12.5px] text-gray-500" style="width:190px;">Aug 6, 2026, 11:05</span>
+              <span class="text-[13px] font-medium text-black text-right" style="width:100px;">$8.50</span>
+            </div>
+            <div class="flex items-center px-4 py-3.5 border-b border-gray-100">
+              <span class="text-[13px] text-black" style="width:90px;">849154</span>
+              <span class="text-[13px] font-medium text-black" style="width:240px;">eSIM — United States, 10GB / 30 days</span>
+              <span class="text-[12.5px] text-gray-500" style="width:190px;">Aug 5, 2026, 22:47</span>
+              <span class="text-[13px] font-medium text-black text-right" style="width:100px;">$24.00</span>
+            </div>
+            <div class="flex items-center px-4 py-3.5 border-b border-gray-100">
+              <span class="text-[13px] text-black" style="width:90px;">849098</span>
+              <span class="text-[13px] font-medium text-black" style="width:240px;">eSIM — Germany, 5GB / 10 days</span>
+              <span class="text-[12.5px] text-gray-500" style="width:190px;">Aug 5, 2026, 16:13</span>
+              <span class="text-[13px] font-medium text-black text-right" style="width:100px;">$11.00</span>
+            </div>
+            <div class="flex items-center px-4 py-3.5 border-b border-gray-100">
+              <span class="text-[13px] text-black" style="width:90px;">849051</span>
+              <span class="text-[13px] font-medium text-black" style="width:240px;">eSIM — Turkey, 3GB / 7 days</span>
+              <span class="text-[12.5px] text-gray-500" style="width:190px;">Aug 5, 2026, 09:28</span>
+              <span class="text-[13px] font-medium text-black text-right" style="width:100px;">$9.00</span>
+            </div>
+            <div class="flex items-center px-4 py-3.5">
+              <span class="text-[13px] text-black" style="width:90px;">848997</span>
+              <span class="text-[13px] font-medium text-black" style="width:240px;">eSIM — Thailand, 20GB / 30 days</span>
+              <span class="text-[12.5px] text-gray-500" style="width:190px;">Aug 4, 2026, 20:56</span>
+              <span class="text-[13px] font-medium text-black text-right" style="width:100px;">$29.00</span>
+            </div>
+          </div>
         </div>
       </div>
+      <p class="text-[11.5px] text-gray-400 text-center mb-4">← Swipe to see more →</p>
 
     </div>
 
+
   </div>
+</div>
+
+<!-- ============ DIAGRAM ZOOM MODAL ============ -->
+<div id="zoom-modal" style="display:none; position:fixed; inset:0; background:#0A0A0A; z-index:200;">
+  <button onclick="closeZoomModal()" style="position:absolute; top:calc(16px + env(safe-area-inset-top,0px)); right:16px; z-index:210;" class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div id="zoom-viewport" style="position:absolute; inset:0; overflow:hidden; touch-action:none; display:flex; align-items:center; justify-content:center;">
+    <div id="zoom-content" style="width:92%; transform-origin:center center; will-change:transform;"></div>
+  </div>
+  <div style="position:absolute; bottom:calc(20px + env(safe-area-inset-bottom,0px)); left:0; right:0; display:flex; align-items:center; justify-content:center; gap:14px; z-index:210;">
+    <button onclick="zoomBy(-0.5)" class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg>
+    </button>
+    <button onclick="resetZoom()" class="h-11 px-4 rounded-full bg-white/15 flex items-center justify-center text-white text-[13px] font-semibold">Reset</button>
+    <button onclick="zoomBy(0.5)" class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </div>
+  <p style="position:absolute; top:calc(16px + env(safe-area-inset-top,0px)); left:20px; right:70px; z-index:205;" class="text-white/50 text-[12px]">Pinch or drag to explore</p>
 </div>
 
 <script>
@@ -1328,6 +1374,136 @@
     group.forEach(function(c) { c.classList.remove('rs-chip-active'); });
     el.classList.add('rs-chip-active');
   }
+
+  /* ===== Diagram zoom modal ===== */
+  var zoomState = { scale: 1, x: 0, y: 0 };
+  var zoomPointers = {};
+  var zoomPanStart = { x: 0, y: 0 };
+  var zoomContentStart = { x: 0, y: 0 };
+  var zoomPinchStartDist = 0;
+  var zoomPinchStartScale = 1;
+  var zoomLastTap = 0;
+  var ZOOM_MIN = 1, ZOOM_MAX = 6;
+
+  function openZoomModal(wrapperEl) {
+    var svg = wrapperEl.querySelector('svg');
+    if (!svg) return;
+    var clone = svg.cloneNode(true);
+    clone.removeAttribute('width');
+    clone.style.width = '100%';
+    clone.style.height = 'auto';
+    clone.style.display = 'block';
+    var content = document.getElementById('zoom-content');
+    content.innerHTML = '';
+    content.appendChild(clone);
+    resetZoom();
+    document.getElementById('zoom-modal').style.display = 'block';
+  }
+
+  function closeZoomModal() {
+    document.getElementById('zoom-modal').style.display = 'none';
+  }
+
+  function applyZoomTransform() {
+    var content = document.getElementById('zoom-content');
+    content.style.transform = 'translate(' + zoomState.x + 'px,' + zoomState.y + 'px) scale(' + zoomState.scale + ')';
+  }
+
+  function resetZoom() {
+    zoomState = { scale: 1, x: 0, y: 0 };
+    applyZoomTransform();
+  }
+
+  function zoomBy(delta) {
+    var newScale = Math.min(Math.max(zoomState.scale + delta, ZOOM_MIN), ZOOM_MAX);
+    zoomState.scale = newScale;
+    if (newScale === ZOOM_MIN) { zoomState.x = 0; zoomState.y = 0; }
+    applyZoomTransform();
+  }
+
+  function zoomDist(a, b) {
+    var dx = a.x - b.x, dy = a.y - b.y;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function zoomClampPan() {
+    var maxPan = (zoomState.scale - 1) * 220;
+    if (maxPan < 0) maxPan = 0;
+    zoomState.x = Math.min(Math.max(zoomState.x, -maxPan), maxPan);
+    zoomState.y = Math.min(Math.max(zoomState.y, -maxPan), maxPan);
+  }
+
+  (function initZoomModal() {
+    var viewport = document.getElementById('zoom-viewport');
+    if (!viewport) return;
+
+    viewport.addEventListener('pointerdown', function(e) {
+      viewport.setPointerCapture(e.pointerId);
+      zoomPointers[e.pointerId] = { x: e.clientX, y: e.clientY };
+      var ids = Object.keys(zoomPointers);
+      if (ids.length === 1) {
+        zoomPanStart = { x: e.clientX, y: e.clientY };
+        zoomContentStart = { x: zoomState.x, y: zoomState.y };
+      } else if (ids.length === 2) {
+        var pts = ids.map(function(id) { return zoomPointers[id]; });
+        zoomPinchStartDist = zoomDist(pts[0], pts[1]);
+        zoomPinchStartScale = zoomState.scale;
+      }
+    });
+
+    viewport.addEventListener('pointermove', function(e) {
+      if (!zoomPointers[e.pointerId]) return;
+      zoomPointers[e.pointerId] = { x: e.clientX, y: e.clientY };
+      var ids = Object.keys(zoomPointers);
+      if (ids.length === 1 && zoomState.scale > 1) {
+        zoomState.x = zoomContentStart.x + (e.clientX - zoomPanStart.x);
+        zoomState.y = zoomContentStart.y + (e.clientY - zoomPanStart.y);
+        zoomClampPan();
+        applyZoomTransform();
+      } else if (ids.length === 2) {
+        var pts = ids.map(function(id) { return zoomPointers[id]; });
+        var dist = zoomDist(pts[0], pts[1]);
+        if (zoomPinchStartDist > 0) {
+          var newScale = zoomPinchStartScale * (dist / zoomPinchStartDist);
+          zoomState.scale = Math.min(Math.max(newScale, ZOOM_MIN), ZOOM_MAX);
+          zoomClampPan();
+          applyZoomTransform();
+        }
+      }
+    });
+
+    function endPointer(e) {
+      delete zoomPointers[e.pointerId];
+      var ids = Object.keys(zoomPointers);
+      if (ids.length === 1) {
+        var id = ids[0];
+        zoomPanStart = { x: zoomPointers[id].x, y: zoomPointers[id].y };
+        zoomContentStart = { x: zoomState.x, y: zoomState.y };
+      }
+    }
+    viewport.addEventListener('pointerup', function(e) {
+      var now = Date.now();
+      if (now - zoomLastTap < 300) {
+        if (zoomState.scale > 1) {
+          resetZoom();
+        } else {
+          zoomState.scale = 2.5;
+          applyZoomTransform();
+        }
+      }
+      zoomLastTap = now;
+      endPointer(e);
+    });
+    viewport.addEventListener('pointercancel', endPointer);
+
+    viewport.addEventListener('wheel', function(e) {
+      e.preventDefault();
+      var delta = -e.deltaY * 0.003;
+      zoomState.scale = Math.min(Math.max(zoomState.scale + delta, ZOOM_MIN), ZOOM_MAX);
+      zoomClampPan();
+      applyZoomTransform();
+    }, { passive: false });
+  })();
 
   showTab('data');
 </script>
