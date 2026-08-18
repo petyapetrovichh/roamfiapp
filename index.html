@@ -309,10 +309,10 @@
 
         <div class="flex items-center justify-between mb-4">
           <span class="text-[14px] text-gray-400">Total Amount</span>
-          <span class="text-[18px] font-bold text-black">$7.18</span>
+          <span id="tabd-total" class="text-[18px] font-bold text-black">$7.18</span>
         </div>
 
-        <button class="w-full h-12 rounded-full brand-btn text-[15px] font-bold text-black">Choose</button>
+        <button onclick="goToSummaryData()" class="w-full h-12 rounded-full brand-btn text-[15px] font-bold text-black">Choose</button>
       </div>
 
       <div class="pb-4">
@@ -473,7 +473,7 @@
             <circle cx="5.025" cy="5.025" r="5.025" fill="black"/>
             <path d="M5.025 0C2.24975 0 0 2.24975 0 5.025C0 7.80025 2.24975 10.05 5.025 10.05C7.80025 10.05 10.05 7.80025 10.05 5.025C10.05 2.24975 7.80025 0 5.025 0ZM4.7733 4.3311C4.86364 4.42468 5.00892 4.51401 5.20903 4.59899C5.40913 4.68397 5.59785 4.77219 5.7754 4.86364C5.95284 4.9551 6.10616 5.05884 6.23536 5.17508C6.36444 5.29121 6.4655 5.42689 6.53864 5.58177C6.61178 5.73665 6.64841 5.9228 6.64841 6.13999C6.64841 6.50793 6.53172 6.80809 6.29822 7.04047C6.06473 7.27285 5.74693 7.40841 5.34459 7.44705V8.09583H4.83148V7.44392C4.36237 7.39434 4.00258 7.23366 3.75189 6.96141C3.5012 6.68928 3.37591 6.3305 3.37591 5.88517H4.46354C4.46354 6.1305 4.51781 6.31721 4.62646 6.44507C4.73511 6.57315 4.88955 6.63713 5.08965 6.63713C5.23594 6.63713 5.35107 6.59358 5.43504 6.50637C5.51879 6.41927 5.56089 6.29945 5.56089 6.14658C5.56089 5.97662 5.5189 5.84329 5.43504 5.74637C5.35107 5.64955 5.20367 5.5581 4.99284 5.47211C4.7819 5.38613 4.58727 5.29892 4.40871 5.2107C4.23016 5.12249 4.07628 5.0202 3.94719 4.90407C3.81811 4.78793 3.71906 4.65337 3.65027 4.5005C3.58137 4.34785 3.54698 4.16282 3.54698 3.94541C3.54698 3.58182 3.66959 3.28222 3.91492 3.0466C4.16014 2.81099 4.48721 2.67386 4.89603 2.63511V1.95417H5.40925V2.64806C5.80287 2.70624 6.11219 2.86816 6.33708 3.13381C6.56187 3.39958 6.67432 3.73681 6.67432 4.14551H5.58333C5.58333 3.92185 5.54023 3.74966 5.45413 3.62917C5.36815 3.50868 5.24543 3.44849 5.08631 3.44849C4.94427 3.44849 4.83405 3.49316 4.75544 3.58238C4.67694 3.67171 4.63763 3.79488 4.63763 3.95188C4.63774 4.11112 4.68285 4.23753 4.7733 4.3311Z" fill="#05E3F7"/>
           </svg>
-          <span class="text-[14px] leading-snug text-black truncate"><span class="font-bold">X USD</span> (Balance) from revenue sharing</span>
+          <span class="text-[14px] leading-snug text-black truncate"><span class="font-bold">X</span> USD (Balance) from revenue sharing</span>
         </div>
         <span class="text-[13px] text-gray-400 flex items-center gap-1 shrink-0">Rule
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
@@ -489,14 +489,116 @@
           <span class="text-[15px] text-black"><span class="font-bold">202.08</span> RF (Bonus)</span>
         </div>
         <div class="relative shrink-0">
-          <button onclick="toggleRfInfo(event)" class="flex items-center justify-center p-1">
+          <button onclick="toggleRfInfo(event,'rf-info-tooltip-funds')" class="flex items-center justify-center p-1">
             <svg width="14" height="14" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4.14076 4.58339C4.11309 4.69972 4.17053 4.8185 4.27776 4.87161C4.4492 4.95661 4.55676 5.1465 4.52364 5.34994L4.24409 7.06894C4.21009 7.27783 4.35187 7.47472 4.56076 7.50872C4.86998 7.55905 5.18598 7.5365 5.48387 7.44394C5.56953 7.41728 5.63431 7.34628 5.65509 7.25905L5.70253 7.05894C5.7302 6.94261 5.67276 6.82383 5.56553 6.77072C5.39409 6.68572 5.28653 6.49583 5.31964 6.29239L5.5992 4.57339C5.6332 4.3645 5.49142 4.16761 5.28253 4.13361C4.97331 4.08328 4.65731 4.10583 4.35942 4.19839C4.27376 4.22505 4.20898 4.29605 4.1882 4.38328L4.14076 4.58339Z" fill="#BFC5C8"/>
               <path d="M5.23254 3.73291C5.58251 3.73291 5.86621 3.44921 5.86621 3.09924C5.86621 2.74928 5.58251 2.46558 5.23254 2.46558C4.88258 2.46558 4.59888 2.74928 4.59888 3.09924C4.59888 3.44921 4.88258 3.73291 5.23254 3.73291Z" fill="#BFC5C8"/>
               <path d="M5 10C2.243 10 0 7.757 0 5C0 2.243 2.243 0 5 0C7.757 0 10 2.243 10 5C10 7.757 7.757 10 5 10ZM5 0.788667C2.67789 0.788667 0.788667 2.67789 0.788667 5C0.788667 7.32211 2.67789 9.21133 5 9.21133C7.32211 9.21133 9.21133 7.32211 9.21133 5C9.21133 2.67789 7.32211 0.788667 5 0.788667Z" fill="#BFC5C8"/>
             </svg>
           </button>
-          <div id="rf-info-tooltip" style="display:none;width:220px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid #EEF0F2;" class="absolute right-0 top-8 bg-white rounded-2xl p-3.5 z-10">
+          <div id="rf-info-tooltip-funds" class="rf-tooltip absolute right-0 top-8 bg-white rounded-2xl p-3.5 z-10" style="display:none;width:220px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid #EEF0F2;">
+            <span class="text-[12.5px] text-gray-500 leading-snug">RF is a bonus token which is provided separately from USD by revenue sharing program. More details about RF <span class="font-semibold text-gray-400">here</span>.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment method -->
+    <div class="bg-white rounded-2xl px-4 py-4 flex items-center justify-between">
+      <span class="text-[16px] font-semibold text-black">Payment Method</span>
+      <div class="flex items-center gap-2">
+        <svg width="20" height="16" viewBox="0 0 24 20" fill="black"><rect x="0" y="0" width="24" height="20" rx="3"/><rect x="0" y="5" width="24" height="3.5" fill="white"/><rect x="2.5" y="13.5" width="6" height="2.5" rx="1" fill="white"/></svg>
+        <span class="text-[14px] text-gray-400">Bank Card</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C4C7CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="bg-white px-5 pt-5" style="padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));">
+    <p class="text-[12.5px] text-gray-400 leading-snug mb-4">By purchasing, you automatically agree to <span style="color:var(--brand)">the refund policy</span> and <span style="color:var(--brand)">confirm that your smartphone supports eSIM</span> and can use data after installation.</p>
+    <button class="w-full rounded-full bg-black text-white text-[15px] font-bold" style="height:52px;">Continue to Payment</button>
+  </div>
+
+</div>
+
+<!-- ============ PURCHASE SUMMARY PAGE (Data flow) ============ -->
+<div id="page-summary-data" style="display:none">
+
+  <!-- Header -->
+  <div class="relative flex items-center justify-center px-5 pt-6 pb-4 bg-white">
+    <button onclick="backToPlansData()" class="absolute left-5 w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-[17px] font-bold text-black">Purchase Summary</h1>
+  </div>
+
+  <div class="bg-gray-100 px-5 pt-5 pb-4">
+
+    <!-- Order breakdown -->
+    <div class="bg-white rounded-2xl p-4 mb-4">
+      <div class="flex items-center justify-between pb-3.5">
+        <div>
+          <div id="sumd-plan" class="text-[16px] font-bold text-black">1GB/day</div>
+          <div id="sumd-validity" class="text-[13px] text-gray-400 mt-0.5">Valid 3 days, Japan</div>
+        </div>
+        <span id="sumd-price" class="text-[16px] font-bold text-black">$7.18</span>
+      </div>
+      <div class="border-t border-gray-100"></div>
+      <div class="flex items-center justify-between py-3.5">
+        <div>
+          <div class="text-[16px] text-black">Service Fee</div>
+          <div class="text-[13px] text-gray-400 mt-0.5">One-time Fee</div>
+        </div>
+        <span class="text-[16px] font-bold" style="color:#C7CBCF;text-decoration:line-through;">$—</span>
+      </div>
+      <div class="border-t border-gray-100"></div>
+      <button class="w-full flex items-center justify-between py-3.5">
+        <span class="text-[16px] text-black">Promo Code</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <div class="border-t border-gray-100"></div>
+      <div class="flex items-center justify-between pt-3.5">
+        <span class="text-[17px] font-bold text-black">Total</span>
+        <span id="sumd-total" class="text-[19px] font-bold text-black">$7.18</span>
+      </div>
+    </div>
+
+    <div class="text-[13px] text-gray-400 mb-2.5 px-1">Extra benefits</div>
+
+    <!-- Extra benefits -->
+    <div class="bg-white rounded-2xl px-4 py-3.5 mb-4">
+      <div class="flex items-center justify-between pb-3.5">
+        <div class="flex items-center gap-2 min-w-0">
+          <svg width="19" height="19" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+            <circle cx="5.025" cy="5.025" r="5.025" fill="black"/>
+            <path d="M5.025 0C2.24975 0 0 2.24975 0 5.025C0 7.80025 2.24975 10.05 5.025 10.05C7.80025 10.05 10.05 7.80025 10.05 5.025C10.05 2.24975 7.80025 0 5.025 0ZM4.7733 4.3311C4.86364 4.42468 5.00892 4.51401 5.20903 4.59899C5.40913 4.68397 5.59785 4.77219 5.7754 4.86364C5.95284 4.9551 6.10616 5.05884 6.23536 5.17508C6.36444 5.29121 6.4655 5.42689 6.53864 5.58177C6.61178 5.73665 6.64841 5.9228 6.64841 6.13999C6.64841 6.50793 6.53172 6.80809 6.29822 7.04047C6.06473 7.27285 5.74693 7.40841 5.34459 7.44705V8.09583H4.83148V7.44392C4.36237 7.39434 4.00258 7.23366 3.75189 6.96141C3.5012 6.68928 3.37591 6.3305 3.37591 5.88517H4.46354C4.46354 6.1305 4.51781 6.31721 4.62646 6.44507C4.73511 6.57315 4.88955 6.63713 5.08965 6.63713C5.23594 6.63713 5.35107 6.59358 5.43504 6.50637C5.51879 6.41927 5.56089 6.29945 5.56089 6.14658C5.56089 5.97662 5.5189 5.84329 5.43504 5.74637C5.35107 5.64955 5.20367 5.5581 4.99284 5.47211C4.7819 5.38613 4.58727 5.29892 4.40871 5.2107C4.23016 5.12249 4.07628 5.0202 3.94719 4.90407C3.81811 4.78793 3.71906 4.65337 3.65027 4.5005C3.58137 4.34785 3.54698 4.16282 3.54698 3.94541C3.54698 3.58182 3.66959 3.28222 3.91492 3.0466C4.16014 2.81099 4.48721 2.67386 4.89603 2.63511V1.95417H5.40925V2.64806C5.80287 2.70624 6.11219 2.86816 6.33708 3.13381C6.56187 3.39958 6.67432 3.73681 6.67432 4.14551H5.58333C5.58333 3.92185 5.54023 3.74966 5.45413 3.62917C5.36815 3.50868 5.24543 3.44849 5.08631 3.44849C4.94427 3.44849 4.83405 3.49316 4.75544 3.58238C4.67694 3.67171 4.63763 3.79488 4.63763 3.95188C4.63774 4.11112 4.68285 4.23753 4.7733 4.3311Z" fill="#05E3F7"/>
+          </svg>
+          <span class="text-[14px] leading-snug text-black truncate"><span class="font-bold">X</span> USD (Balance) from revenue sharing</span>
+        </div>
+        <span class="text-[13px] text-gray-400 flex items-center gap-1 shrink-0">Rule
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </span>
+      </div>
+      <div class="border-t border-gray-100"></div>
+      <div class="flex items-center justify-between pt-3.5">
+        <div class="flex items-center gap-2">
+          <svg width="19" height="19" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+            <path d="M10.0483 5.02416C10.0483 7.79892 7.79892 10.0483 5.02416 10.0483C2.24939 10.0483 0 7.79892 0 5.02416C0 2.24939 2.24939 0 5.02416 0C7.79892 0 10.0483 2.24939 10.0483 5.02416Z" fill="#05E3F7"/>
+            <path d="M6.25513 2.64575L7.43677 3.82739L7.58423 3.97388V5.79126H7.5647L6.58228 5.11353V4.38794L5.69458 3.50024H3.46509V6.57056L4.04028 6.2229C4.63142 5.86512 5.37851 5.88755 5.94751 6.27954L7.54419 7.38013H5.78052L5.37915 7.10376C5.13447 6.93532 4.813 6.92553 4.55884 7.07935L4.06177 7.38013H2.46313V2.49829H6.10864L6.25513 2.64575Z" fill="black"/>
+          </svg>
+          <span id="sumd-rf" class="text-[15px] text-black"><span class="font-bold">178.29</span> RF (Bonus)</span>
+        </div>
+        <div class="relative shrink-0">
+          <button onclick="toggleRfInfo(event,'rf-info-tooltip-data')" class="flex items-center justify-center p-1">
+            <svg width="14" height="14" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.14076 4.58339C4.11309 4.69972 4.17053 4.8185 4.27776 4.87161C4.4492 4.95661 4.55676 5.1465 4.52364 5.34994L4.24409 7.06894C4.21009 7.27783 4.35187 7.47472 4.56076 7.50872C4.86998 7.55905 5.18598 7.5365 5.48387 7.44394C5.56953 7.41728 5.63431 7.34628 5.65509 7.25905L5.70253 7.05894C5.7302 6.94261 5.67276 6.82383 5.56553 6.77072C5.39409 6.68572 5.28653 6.49583 5.31964 6.29239L5.5992 4.57339C5.6332 4.3645 5.49142 4.16761 5.28253 4.13361C4.97331 4.08328 4.65731 4.10583 4.35942 4.19839C4.27376 4.22505 4.20898 4.29605 4.1882 4.38328L4.14076 4.58339Z" fill="#BFC5C8"/>
+              <path d="M5.23254 3.73291C5.58251 3.73291 5.86621 3.44921 5.86621 3.09924C5.86621 2.74928 5.58251 2.46558 5.23254 2.46558C4.88258 2.46558 4.59888 2.74928 4.59888 3.09924C4.59888 3.44921 4.88258 3.73291 5.23254 3.73291Z" fill="#BFC5C8"/>
+              <path d="M5 10C2.243 10 0 7.757 0 5C0 2.243 2.243 0 5 0C7.757 0 10 2.243 10 5C10 7.757 7.757 10 5 10ZM5 0.788667C2.67789 0.788667 0.788667 2.67789 0.788667 5C0.788667 7.32211 2.67789 9.21133 5 9.21133C7.32211 9.21133 9.21133 7.32211 9.21133 5C9.21133 2.67789 7.32211 0.788667 5 0.788667Z" fill="#BFC5C8"/>
+            </svg>
+          </button>
+          <div id="rf-info-tooltip-data" class="rf-tooltip absolute right-0 top-8 bg-white rounded-2xl p-3.5 z-10" style="display:none;width:220px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid #EEF0F2;">
             <span class="text-[12.5px] text-gray-500 leading-snug">RF is a bonus token which is provided separately from USD by revenue sharing program. More details about RF <span class="font-semibold text-gray-400">here</span>.</span>
           </div>
         </div>
@@ -593,16 +695,44 @@
     window.scrollTo(0, 0);
   }
 
-  function toggleRfInfo(e) {
+  function goToSummaryData() {
+    var dayBtn = document.querySelector('#tab-data .pill-selected[data-value]');
+    var planBtns = document.querySelectorAll('#tab-data .pill-selected');
+    var planLabel = planBtns[1] ? planBtns[1].textContent.trim() : '1GB/day';
+    var days = dayBtn ? dayBtn.dataset.value : '3';
+    var country = document.getElementById('plans-country').textContent;
+    var priceText = document.getElementById('tabd-total').textContent.trim();
+    var price = parseFloat(priceText.replace('$', '')) || 0;
+    var rf = price * 24.8255;
+
+    document.getElementById('sumd-plan').textContent = planLabel;
+    document.getElementById('sumd-validity').textContent = 'Valid ' + days + ' days, ' + country;
+    document.getElementById('sumd-price').textContent = '$' + fmt(price);
+    document.getElementById('sumd-total').textContent = '$' + fmt(price);
+    document.getElementById('sumd-rf').innerHTML = '<span class="font-bold">' + fmt(rf) + '</span> RF (Bonus)';
+
+    document.getElementById('page-plans').style.display = 'none';
+    document.getElementById('page-summary-data').style.display = '';
+    window.scrollTo(0, 0);
+  }
+
+  function backToPlansData() {
+    document.getElementById('page-summary-data').style.display = 'none';
+    document.getElementById('page-plans').style.display = '';
+    window.scrollTo(0, 0);
+  }
+
+  function toggleRfInfo(e, tipId) {
     e.stopPropagation();
-    var tip = document.getElementById('rf-info-tooltip');
+    var tip = document.getElementById(tipId);
     tip.style.display = tip.style.display === 'none' ? '' : 'none';
   }
   document.addEventListener('click', function(e) {
-    var tip = document.getElementById('rf-info-tooltip');
-    if (tip && tip.style.display !== 'none' && !tip.contains(e.target)) {
-      tip.style.display = 'none';
-    }
+    document.querySelectorAll('.rf-tooltip').forEach(function(tip) {
+      if (tip.style.display !== 'none' && !tip.contains(e.target)) {
+        tip.style.display = 'none';
+      }
+    });
   });
 
   showTab('data');
