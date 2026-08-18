@@ -1475,7 +1475,11 @@
           <svg id="faq-chevron-16" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div id="faq-answer-16" style="display:none" class="px-4 pb-4">
-          <span class="text-[13.5px] text-gray-500 leading-snug">Your Flex balance and current package&#x27;s data usage are visible in the RoamFi app at any time, with no need to contact support.</span>
+          <div class="flex flex-col gap-2.5">
+            <span class="text-[13.5px] text-gray-500 leading-snug">Your remaining balance is always visible on the Home and Me tabs.</span>
+            <span class="text-[13.5px] text-gray-500 leading-snug">For Flex, real-time data usage is available in the History section under Me &mdash; no need to contact support.</span>
+            <span class="text-[13.5px] text-gray-500 leading-snug">For Fix, RoamFi doesn&#x27;t display data usage in the app yet. Most phones show data usage in system settings, and some eSIMs support USSD queries &mdash; for example, Vietnam (Vietnamobile) *102#, Thailand (AIS) *121*3#. If you can&#x27;t check your usage this way, contact customer support.</span>
+          </div>
         </div>
       </div>
       <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
@@ -1485,6 +1489,186 @@
         </button>
         <div id="faq-answer-17" style="display:none" class="px-4 pb-4">
           <span class="text-[13.5px] text-gray-500 leading-snug">No, Flex balance has no expiration date and never expires. This differs from Fix plans, which are tied to a specific trip duration.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(41)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How to check SIM lock status and unlock?</span>
+          <svg id="faq-chevron-41" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-41" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">On iPhone, go to Settings → General → About → “Carrier Lock / SIM Lock.” If it shows “No SIM restrictions,” your device is unlocked. On Android, go to Settings → About phone → SIM status. If your device is locked, contact your carrier to unlock it.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(42)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Please do not tap &quot;Switch to eSIM&quot;</span>
+          <svg id="faq-chevron-42" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-42" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">In your phone&#x27;s Cellular/Mobile Network settings, don&#x27;t tap “Switch to eSIM” — select “Add eSIM” instead. Accidentally choosing “Switch to eSIM” may make your existing SIM card unusable. If this happens, contact your mobile carrier for assistance — RoamFi can&#x27;t perform this operation on your behalf.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(43)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">About personal hotspot</span>
+          <svg id="faq-chevron-43" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-43" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">RoamFi&#x27;s eSIM/SIM plans don&#x27;t prohibit hotspot sharing, and you&#x27;re free to enable it. Device differences mean we can&#x27;t guarantee it will work on every phone.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(44)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">&quot;Unable to Activate&quot; when scanning — what should I do?</span>
+          <svg id="faq-chevron-44" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-44" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">If you see “Unable to Activate” after scanning the QR code, the line may already have been added — check whether a new mobile line has appeared in your Cellular/Mobile settings. If nothing appears, restart your device and try again while connected to Wi-Fi. In Japan specifically, seeing “Unable to Activate” during pre-installation is normal — switch to the RoamFi line and turn on Data Roaming once you arrive at your destination.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(45)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What if I see &quot;eSIM is invalid&quot;?</span>
+          <svg id="faq-chevron-45" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-45" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">For US T-Mobile eSIMs, activation usually happens by 11:00 a.m. New York time on the reserved date — scanning earlier can show “eSIM invalid.” Wait until the activation time and scan again, and confirm the eSIM is still within its validity window (most require activation within 30 days of issuance). If the issue persists, try restarting your device or resetting network settings, or contact customer support.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(46)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">It shows &quot;Unable to Activate&quot; — what should I do?</span>
+          <svg id="faq-chevron-46" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-46" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">When scanning the eSIM in Japan, you may see “Activating...” followed by “Unable to Activate” — this is expected. To avoid premature activation, turn the RoamFi line off after the prompt appears, then turn it back on and enable Data Roaming once you&#x27;ve arrived at your destination.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(47)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">It keeps showing &quot;Activating...&quot; — what should I do?</span>
+          <svg id="faq-chevron-47" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-47" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">When using a foreign eSIM in Japan, it may show “Activating...” and then “Unable to Activate” — this is normal. After arrival, turn off Airplane Mode; activation should complete within a few minutes. If it doesn&#x27;t, restart your device.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(48)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What if it says &quot;Incompatible&quot;?</span>
+          <svg id="faq-chevron-48" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-48" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Go to Settings → General → About → SIM Lock (or Carrier Lock) to check for a SIM lock. If it shows “Unlocked” or “No SIM restrictions,” you can use the eSIM. If it&#x27;s locked, contact your carrier to unlock it.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(49)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Do not delete the eSIM during the validity period</span>
+          <svg id="faq-chevron-49" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-49" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Don&#x27;t delete your eSIM before the plan expires — once deleted, it usually can&#x27;t be reinstalled. The same QR code also can&#x27;t be installed again on a different phone.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(50)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How to check IMEI and EID?</span>
+          <svg id="faq-chevron-50" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-50" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Dial *#06# on your phone to view both your IMEI and EID. On iPhone, you can also find them under Settings → General → About. On Android, under Settings → About device → SIM status.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(51)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">eSIM not working and data usage not showing — what to do?</span>
+          <svg id="faq-chevron-51" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-51" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">If your eSIM won&#x27;t connect and data usage isn&#x27;t displaying, check that Data Roaming is on and your APN settings are correct, or restart your device and try again. If the issue remains, contact customer support.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(52)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">How do I turn an eSIM line on/off?</span>
+          <svg id="faq-chevron-52" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-52" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">On iPhone with only one line, go to Settings → Cellular and toggle Mobile Data. With multiple lines, go to Settings → Cellular, select the eSIM line, and toggle “Turn On This Line.” On Android, go to Settings → Network &amp; internet, select the eSIM line, and toggle Mobile Data. Turning off your Japan line when you don&#x27;t need it helps avoid extra charges.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(53)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">About Data Roaming</span>
+          <svg id="faq-chevron-53" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-53" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">On iPhone, go to Settings → Cellular Data / Mobile Service → SIMs → your RoamFi eSIM line, and turn on Data Roaming. On Android, go to Settings → Mobile network → your RoamFi eSIM line, and enable Data Roaming (naming varies by device). Data Roaming needs to stay on for your RoamFi eSIM to work, and won&#x27;t incur extra charges — but we strongly recommend turning off data roaming on your regular SIM to avoid accidental charges from your home carrier.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(54)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">About APN settings</span>
+          <svg id="faq-chevron-54" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-54" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">On iPhone, go to Settings → Cellular → select the eSIM line → Cellular Data Network to view or edit the APN (some models don&#x27;t allow editing). On Android, go to Settings → Mobile network → select the eSIM line → Access Point Names (APN). If you can&#x27;t find this menu, search “APN” in your phone&#x27;s Settings.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(55)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">Network selection / carrier settings</span>
+          <svg id="faq-chevron-55" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-55" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">If the local signal is unstable, you can manually choose a different carrier. On iPhone, go to Settings → Cellular → select the eSIM line → Network Selection, turn off Automatic, and pick another carrier. On Android, go to Settings → Mobile network → select the eSIM line → Network operators, turn off automatic search, and select manually.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(56)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">About configuration profiles</span>
+          <svg id="faq-chevron-56" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-56" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Configuration profiles installed for Japan can affect your signal overseas. Go to Settings → General → VPN &amp; Device Management, check for and delete any Japan-related profiles, then try connecting again. You may need to reinstall the profile after returning home — and since deleting a profile can remove emails or memos linked to it, back up anything important first (other data isn&#x27;t affected).</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(57)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">About resetting network settings</span>
+          <svg id="faq-chevron-57" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-57" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">On iPhone, go to Settings → General → Transfer or Reset iPhone → Reset → Reset Network Settings. On Android, go to Settings → System → Reset options → Reset Wi-Fi, mobile &amp; Bluetooth. This can fix connectivity issues, but it also erases saved Wi-Fi passwords and Bluetooth pairings — your APN and VPN will need to be set up again afterward.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(58)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">When and how to delete an eSIM?</span>
+          <svg id="faq-chevron-58" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-58" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">On iPhone, go to Settings → Cellular → the added eSIM line → Delete eSIM. On Android, go to Settings → Network &amp; internet → SIMs (or eSIMs) → select the added eSIM → Remove SIM. Only delete an eSIM once you&#x27;re finished using it — some can&#x27;t be reinstalled afterward, so don&#x27;t delete one mid-use unless support explicitly tells you to.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(59)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What should I do after I run out of data on a Fix plan?</span>
+          <svg id="faq-chevron-59" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-59" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Refills aren&#x27;t currently supported on Fix plans. Once your data runs out, purchase another Fix plan or top up your balance to switch to a Flex eSIM.</span>
+        </div>
+      </div>
+      <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="technical">
+        <button onclick="toggleFaq(60)" class="w-full flex items-center justify-between text-left px-4 py-4 gap-3">
+          <span class="text-[14.5px] font-bold text-black leading-snug">What do I need to do after returning to my home country?</span>
+          <svg id="faq-chevron-60" class="shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" style="transition:transform .2s;"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="faq-answer-60" style="display:none" class="px-4 pb-4">
+          <span class="text-[13.5px] text-gray-500 leading-snug">Just delete the Fix eSIM you&#x27;ve finished using. Your Flex eSIM doesn&#x27;t need to be deleted and stays usable for future trips — no other settings are required.</span>
         </div>
       </div>
       <div class="faq-card bg-gray-100 rounded-2xl mb-3" data-cat="comparing">
@@ -1731,29 +1915,29 @@
     <button onclick="pickFaqFilter(this,'all','All')" data-key="all" class="faq-filter-opt faq-filter-active w-full text-left px-4 py-3.5 rounded-xl">
       <span class="text-[14.5px] text-black">All</span>
     </button>
-    <button onclick="pickFaqFilter(this,'technical','Technical Questions')" data-key="technical" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
-      <span class="text-[14.5px] text-black">Technical Questions</span>
+    <button onclick="pickFaqFilter(this,'revenue-sharing','Revenue sharing')" data-key="revenue-sharing" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Revenue sharing</span>
     </button>
-    <button onclick="pickFaqFilter(this,'revenue-sharing','Revenue Sharing')" data-key="revenue-sharing" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
-      <span class="text-[14.5px] text-black">Revenue Sharing</span>
+    <button onclick="pickFaqFilter(this,'technical','Technical questions')" data-key="technical" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Technical questions</span>
     </button>
-    <button onclick="pickFaqFilter(this,'comparing','Comparing RoamFi to Other Providers')" data-key="comparing" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
-      <span class="text-[14.5px] text-black">Comparing RoamFi to Other Providers</span>
+    <button onclick="pickFaqFilter(this,'comparing','Comparing RoamFi to other providers')" data-key="comparing" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Comparing RoamFi to other providers</span>
     </button>
-    <button onclick="pickFaqFilter(this,'legitimacy','Legitimacy and Trust')" data-key="legitimacy" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
-      <span class="text-[14.5px] text-black">Legitimacy and Trust</span>
+    <button onclick="pickFaqFilter(this,'legitimacy','Legitimacy and trust')" data-key="legitimacy" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Legitimacy and trust</span>
     </button>
-    <button onclick="pickFaqFilter(this,'use-cases','Use Cases')" data-key="use-cases" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
-      <span class="text-[14.5px] text-black">Use Cases</span>
+    <button onclick="pickFaqFilter(this,'use-cases','Use cases')" data-key="use-cases" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Use cases</span>
     </button>
-    <button onclick="pickFaqFilter(this,'top-destinations','Top Destinations')" data-key="top-destinations" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
-      <span class="text-[14.5px] text-black">Top Destinations</span>
+    <button onclick="pickFaqFilter(this,'top-destinations','Top destinations')" data-key="top-destinations" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">Top destinations</span>
     </button>
-    <button onclick="pickFaqFilter(this,'esim-basics','eSIM Basics')" data-key="esim-basics" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
-      <span class="text-[14.5px] text-black">eSIM Basics</span>
+    <button onclick="pickFaqFilter(this,'esim-basics','eSIM basics')" data-key="esim-basics" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">eSIM basics</span>
     </button>
-    <button onclick="pickFaqFilter(this,'rf-bonus','RF Bonus')" data-key="rf-bonus" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
-      <span class="text-[14.5px] text-black">RF Bonus</span>
+    <button onclick="pickFaqFilter(this,'rf-bonus','RF bonus')" data-key="rf-bonus" class="faq-filter-opt w-full text-left px-4 py-3.5 rounded-xl">
+      <span class="text-[14.5px] text-black">RF bonus</span>
     </button>
   </div>
   <button onclick="confirmFaqFilter()" class="w-full h-13 rounded-full bg-black text-white text-[15px] font-bold" style="height:52px;">Confirm</button>
